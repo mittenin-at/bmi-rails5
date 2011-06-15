@@ -1,0 +1,27 @@
+<h1>Listing weighings</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Date</th>
+    <th>Weight</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @weighings.each do |weighing| %>
+  <tr>
+    <td><%= weighing.user_id %></td>
+    <td><%= weighing.date %></td>
+    <td><%= weighing.weight %></td>
+    <td><%= link_to 'Show', weighing %></td>
+    <td><%= link_to 'Edit', edit_weighing_path(weighing) %></td>
+    <td><%= link_to 'Destroy', weighing, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Weighing', new_weighing_path %>
