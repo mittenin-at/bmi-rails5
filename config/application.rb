@@ -38,5 +38,8 @@ module Bmi
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    I18n.default_locale = "de"
+    I18n.load_path += Dir.glob("config/locales/de.yml")
   end
 end

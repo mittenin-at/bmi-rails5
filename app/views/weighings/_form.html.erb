@@ -1,29 +1,26 @@
-<%= form_for(@weighing) do |f| %>
-  <% if @weighing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@weighing.errors.count, "error") %> prohibited this weighing from being saved:</h2>
 
-      <ul>
-      <% @weighing.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="group">
+    <%= f.label :user_id, t("activerecord.attributes.weighing.user_id", :default => "User"), :class => :label %>
+    <%= f.text_field :user_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+  <div class="group">
+    <%= f.label :date, t("activerecord.attributes.weighing.date", :default => "Date"), :class => :label %>
+    <%= f.date_select :date, :class => 'date_select' %>
+    <span class="description">Ex: a simple text</span>
   </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+
+  <div class="group">
+    <%= f.label :weight, t("activerecord.attributes.weighing.weight", :default => "Weight"), :class => :label %>
+    <%= f.text_field :weight, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
   </div>
-  <div class="field">
-    <%= f.label :weight %><br />
-    <%= f.text_field :weight %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), weighings_path, :class => "text_button_padding link_button" %>
+</div>
