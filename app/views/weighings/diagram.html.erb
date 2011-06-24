@@ -33,7 +33,7 @@
          gridLineWidth: 0,
          alternateGridColor: null
       },
-      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %b %Y, %H:00', this.x) +': '+ this.y +' kg'; } },
+      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.y +' kg'; } },
       plotOptions: {
          spline: {
             lineWidth: 4,
@@ -45,10 +45,10 @@
          }
       },
       series: [{
-         name: 'Name',
+         name: '<%= @weighings.first.user.email %>',
          data: [
          <% @weighings.each do |weighing| %>
-         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month %>, <%= weighing.date.day %>), <%= weighing.weight %>],
+         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= weighing.weight %>],
          <% end %>
          ]
       }],
