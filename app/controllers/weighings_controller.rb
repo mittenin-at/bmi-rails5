@@ -2,8 +2,7 @@ class WeighingsController < ApplicationController
   # GET /weighings
   # GET /weighings.xml
   def index
-    @weighings = Weighing.all
-
+    @weighings = Weighing.order("date desc").find_all_by_user_id(session[:user_id])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @weighings }
@@ -13,7 +12,7 @@ class WeighingsController < ApplicationController
   # GET /weighings/1
   # GET /weighings/1.xml
   def show
-    @weighing = Weighing.find(params[:id])
+    @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,14 +33,14 @@ class WeighingsController < ApplicationController
 
   # GET /weighings/1/edit
   def edit
-    @weighing = Weighing.find(params[:id])
+    @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
   end
 
   # POST /weighings
   # POST /weighings.xml
   def create
     @weighing = Weighing.new(params[:weighing])
-
+    @weighing.user_id =  session[:user_id]
     respond_to do |format|
       if @weighing.save
         format.html { redirect_to(@weighing, :notice => 'Weighing was successfully created.') }
@@ -56,7 +55,8 @@ class WeighingsController < ApplicationController
   # PUT /weighings/1
   # PUT /weighings/1.xml
   def update
-    @weighing = Weighing.find(params[:id])
+    @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
+    @weighing.user_id =  session[:user_id]
 
     respond_to do |format|
       if @weighing.update_attributes(params[:weighing])
@@ -72,7 +72,7 @@ class WeighingsController < ApplicationController
   # DELETE /weighings/1
   # DELETE /weighings/1.xml
   def destroy
-    @weighing = Weighing.find(params[:id])
+    @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
     @weighing.destroy
 
     respond_to do |format|
@@ -80,4 +80,9 @@ class WeighingsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def diagram
+    @weighings = Weighing.order("date").find_all_by_user_id(session[:user_id])
+  end
 end
+

@@ -3,7 +3,7 @@ class CreateWeighings < ActiveRecord::Migration
     create_table :weighings do |t|
       t.integer :user_id
       t.date :date
-      t.decimal :weight, :precision => 4, :decimals => 3
+      t.decimal :weight, :precision => 4, :scale => 1
 
       t.timestamps
     end
@@ -13,3 +13,4 @@ class CreateWeighings < ActiveRecord::Migration
     drop_table :weighings
   end
 end
+

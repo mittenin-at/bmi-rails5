@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class AuthenticationController < ApplicationController
-	
+
   def login
     session[:user_id] = nil
     if request.post?
@@ -18,8 +18,10 @@ class AuthenticationController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil    
-    redirect_to(:controller => :admin, :action => :login)
+    user = nil
+    session[:user_id] = nil
+    redirect_to :root
   end
 
 end
+

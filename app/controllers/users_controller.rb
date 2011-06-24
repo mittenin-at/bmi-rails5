@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+  before_filter :admin_only, :except => [:show, :edit, :update]
+
   # GET /users
   # GET /users.xml
   def index
-    @users = User.all
+    @users = User.order("email").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,8 +15,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
-
+    if admin?
+      @user = User.find(params[:id])
+    else
+      @user = User.find(session[:user_id])
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
@@ -34,7 +39,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    if admin?
+      @user = User.find(params[:id])
+    else
+      @user = User.find(session[:user_id])
+    end
   end
 
   # POST /users
@@ -56,7 +65,11 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    @user = User.find(params[:id])
+    if admin?
+      @user = User.find(params[:id])
+    else
+      @user = User.find(session[:user_id])
+    end
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -80,4 +93,11 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  protected
+
+  def admin?
+    User.find_by_id(session[:user_id]).admin?
+  end
 end
+

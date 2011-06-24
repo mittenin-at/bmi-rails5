@@ -6,6 +6,7 @@ gem 'rails', '3.0.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'i18n'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -24,3 +25,4 @@ gem 'web-app-theme', '>= 0.6.2'
 # group :development, :test do
 #   gem 'webrat'
 # end
+

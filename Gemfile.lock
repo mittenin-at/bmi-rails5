@@ -84,6 +84,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  i18n
   rails (= 3.0.5)
   ruby-debug19
   sqlite3

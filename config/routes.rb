@@ -1,6 +1,10 @@
 Bmi::Application.routes.draw do
-  resources :weighings
-  
+  resources :weighings do
+    collection do
+      get 'diagram'
+    end
+  end
+
   match 'authentication/login', :controller => 'authentication', :action => 'login'
   get "authentication/logout"
 
@@ -8,10 +12,12 @@ Bmi::Application.routes.draw do
 
   root :to => "weighings", :action => "index"
 
-# damit wird /login umgeleitet:    
+# damit wird /login umgeleitet:
   match '/login' => redirect("/authentication/login")
-  
-# und nun noch sonstiger mist auf die Startseite: 
+  match '/logout' => redirect("/authentication/logout")
+
+# und nun noch sonstiger mist auf die Startseite:
   match '*path' => redirect("/")
-  
+
 end
+

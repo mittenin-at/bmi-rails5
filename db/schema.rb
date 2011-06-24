@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110615205457) do
+ActiveRecord::Schema.define(:version => 20110624173429) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -18,12 +18,13 @@ ActiveRecord::Schema.define(:version => 20110615205457) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "salt"
+    t.boolean  "admin"
   end
 
   create_table "weighings", :force => true do |t|
     t.integer  "user_id"
     t.date     "date"
-    t.decimal  "weight",     :precision => 4, :scale => 0
+    t.decimal  "weight",     :precision => 4, :scale => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
