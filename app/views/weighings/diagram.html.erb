@@ -1,6 +1,5 @@
 <% content_for :script do %>
-  <%= javascript_include_tag "prototype", "effects", "application", "jquery-1.6.min", "highcharts", "modules/exporting", "themes/grid" %>
-  <script type="text/javascript" src="/javascripts/themes/gray.js"></script>
+  <%= javascript_include_tag "jquery-1.6.min", "rails", "highcharts", "modules/exporting", "themes/grid" %>
   <script type="text/javascript">
     jQuery.noConflict();
   </script>
@@ -24,22 +23,36 @@
                                		  weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnertag', 'Freitag', 'Samstag'] } });
     chart= new Highcharts.Chart({
       chart: { renderTo: 'diagram', defaultSeriesType: 'spline' },
-      title: { text: 'Gewichtsverlauf' },
+      title: { text: 'BMI' },
       xAxis: { type: 'datetime' },
-      yAxis: {
-         title: { text: 'Gewicht (kg)' },
-         min: 0,
+      yAxis: { title: { text: 'BMI' },
+         min: 15,
+         max: 45,
          minorGridLineWidth: 0,
          gridLineWidth: 0,
-         alternateGridColor: null
-      },
+         alternateGridColor: null,
+         plotBands: [{ from: 15, to: 16, color: 'rgba(0, 100, 255, 0.4)',
+                       label: { text: 'starkes Untergewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
+                     { from: 16, to: 17, color: 'rgba(0, 150, 255, 0.4)',
+                       label: { text: 'mäßiges Untergewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
+                     { from: 17, to: 18.5, color: 'rgba(0, 255, 255, 0.4)',
+                       label: { text: 'leichtes Untergewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
+                     { from: 18.5, to: 25, color: 'rgba(0, 255, 0, 0.4)',
+                       label: { text: 'Normalgewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
+                     { from: 25, to: 30, color: 'rgba(255, 255, 0, 0.4)',
+                       label: { text: 'Übergewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
+                     { from: 30, to: 35, color: 'rgba(255, 140, 100, 0.4)',
+                       label: { text: 'Adipositas Grad I', style: { color: Highcharts.theme.textColor || '#606060' }}},
+                     { from: 35, to: 40, color: 'rgba(255, 0, 0, 0.4)',
+                       label: { text: 'Adipositas Grad II', style: { color: Highcharts.theme.textColor || '#606060' }}},
+                     { from: 40, to: 45, color: 'rgba(100, 0, 0, 0.4)',
+                       label: { text: 'Adipositas Grad III', style: { color: Highcharts.theme.textColor || '#606060' }}}
+                     ]},
       tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.y +' kg'; } },
       plotOptions: {
-         spline: {
-            lineWidth: 4,
+         spline: { lineWidth: 4,
             states: { hover: { lineWidth: 5 } },
-            marker: {
-               enabled: false,
+            marker: { enabled: false,
                states: { hover: { enabled: true, symbol: 'circle', radius: 5, lineWidth: 1 }}
             },
          }
@@ -48,7 +61,7 @@
          name: '<%= @weighings.first.user.email %>',
          data: [
          <% @weighings.each do |weighing| %>
-         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= weighing.weight %>],
+         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= weighing.weight * 100 * 100 / weighing.user.height / weighing.user.height %>],
          <% end %>
          ]
       }],

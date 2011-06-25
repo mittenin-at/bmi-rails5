@@ -11,19 +11,19 @@
       <table class="table">
         <tr>
           <th><%= User.human_attribute_name('email') %></th>
+          <th><%= t("web-app-theme.public")  %></th>
+          <th><%= t("web-app-theme.height")  %></th>
+          <th><%= User.human_attribute_name('admin') %></th>
           <th><%= t("web-app-theme.created_at")  %></th>
-          <% if admin? %>
-            <th><%= User.human_attribute_name('admin') %></th>
-          <% end %>
           <th class="last">&nbsp;</th>
         </tr>
         <% @users.each do |user| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td><%= link_to user.email, user_path(user) %></td>
-          <td><%= user.created_at %></td>
-          <% if admin? %>
-            <td><%= user.admin? ? raw("&#10003;") : "X" %></td>
-          <% end %>
+          <td><%= user.public? ? raw("&#10003;") : "X" %></td>
+          <td><%= user.height %></td>
+          <td><%= user.admin? ? raw("&#10003;") : "X" %></td>
+          <td><%= l(user.created_at, :format => :long_all) %></td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show")}", user_path(user) %> |
             <%= link_to "#{t("web-app-theme.edit")}", edit_user_path(user) %> |

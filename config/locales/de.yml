@@ -11,6 +11,8 @@ de:
     created_at: 'Erzeugt'
     all: 'alle'
     diagram: 'Diagramm'
+    public: 'öffentlich'
+    height: 'Größe (kg)'
 
   time:
     formats:
@@ -141,14 +143,13 @@ de:
         user:
           attributes:
             password:
-              confirmation: Die eingegebenen Passwörter stimmen nicht überein!
+              confirmation: 'Die eingegebenen Passwörter stimmen nicht überein!'
         weighing:
           attributes:
             date:
-              taken: Für diesen Tag existiert bereits eine Wägung!
+              taken: 'Für diesen Tag existiert bereits eine Wägung!'
             weight:
-              blank: Bitte geben Sie ein Gewicht ein!
-
+              blank: 'Bitte geben Sie ein Gewicht ein!'
     models:
       user: 'Benutzer'
       weighing:
@@ -159,11 +160,13 @@ de:
         email: 'Emailadresse'
         password: 'Passwort'
         password_confirmation: 'Passwortwiederholung'
+        public: 'öffentlich'
+        height: 'Größe (cm)'
         admin: 'Administrator'
       weighing:
         user: 'Benutzer'
         date: 'Datum'
-        weight: 'Gewicht'
+        weight: 'Gewicht (kg)'
 
       messages:
         inclusion: "ist kein gültiger Wert"
