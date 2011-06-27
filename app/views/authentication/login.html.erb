@@ -1,8 +1,33 @@
-<% form_tag do%>
-  <table>
-    <tr><td><label for="username">Email:</label></td><td><%= text_field_tag :email, params[:email] %></td></tr>
-    <tr><td><label for="password">Passwort:</label></td><td><%= password_field_tag :password, params[:password] %></td></tr>
-  </table>
-<%= submit_tag "Login" %>
-<% end -%>
+
+
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"></li>
+      <li class="active"></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title"><%= t("web-app-theme.authentication") %></h2>
+    <div class="inner">
+      <%= form_tag '/authentication/login', :method => :post, :class => 'form' do %>
+        <div class="group">
+          <%= label_tag :username, User.human_attribute_name('email'), :class => :label %>
+          <%= text_field_tag :email, params[:email], :class => 'text_field' %><br />
+          <span class="description">z.b.: max.mustermann@beispiel.com</span>
+        </div>
+        <div class="group">
+          <%= label_tag :password, t("activerecord.attributes.user.password"), :class => :label %>
+          <%= password_field_tag :password, params[:password], :class => 'text_field' %><br />
+          <span class="description">z.B.: geheim$123</span>
+        </div>
+        <div class="group navform wat-cf">
+          <button class="button" type="submit">
+            <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.login")}") %> <%= t("web-app-theme.login", :default => "Login") %>
+          </button>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+</div>
 

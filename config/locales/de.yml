@@ -13,6 +13,8 @@ de:
     diagram: 'Diagramm'
     public: 'öffentlich'
     height: 'Größe (kg)'
+    login: 'Anmelden'
+    authentication: 'Anmeldung'
 
   time:
     formats:
