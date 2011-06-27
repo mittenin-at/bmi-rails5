@@ -83,6 +83,9 @@ class WeighingsController < ApplicationController
 
   def diagram
     @weighings = Weighing.order("date").find_all_by_user_id(session[:user_id])
+    @height = User.find(session[:user_id]).height
+    @minbmi = ( Weighing.minimum(:weight, :conditions => ['id = ?', session[:user_id]]).to_i * 100 * 100 / @height / @height ).to_i - 5
+    @maxbmi = ( Weighing.maximum(:weight, :conditions => ['id = ?', session[:user_id]]).to_i * 100 * 100 / @height / @height ).to_i + 4
   end
 end
 

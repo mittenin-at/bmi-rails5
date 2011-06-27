@@ -22,12 +22,12 @@
     Highcharts.setOptions({ lang: { months: ['Jänner', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
                                		  weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnertag', 'Freitag', 'Samstag'] } });
     chart= new Highcharts.Chart({
-      chart: { renderTo: 'diagram', defaultSeriesType: 'spline' },
+      chart: { renderTo: 'diagram', defaultSeriesType: 'spline', zoomType: 'x' },
       title: { text: 'BMI' },
       xAxis: { type: 'datetime' },
       yAxis: { title: { text: 'BMI' },
-         min: 15,
-         max: 45,
+         min: <%= @minbmi %>,
+         max: <%= @maxbmi %>,
          minorGridLineWidth: 0,
          gridLineWidth: 0,
          alternateGridColor: null,
@@ -61,7 +61,7 @@
          name: '<%= @weighings.first.user.email %>',
          data: [
          <% @weighings.each do |weighing| %>
-         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= weighing.weight * 100 * 100 / weighing.user.height / weighing.user.height %>],
+         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= weighing.weight * 100 * 100 / @height / @height %>],
          <% end %>
          ]
       }],
