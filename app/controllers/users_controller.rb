@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
-  before_filter :admin_only, :except => [:show, :edit, :update]
-
+  before_filter :admin_only, :except => [:show, :edit, :update, :new, :create]
+  skip_filter :authorize, :only => [:new, :create]
+  
   # GET /users
   # GET /users.xml
   def index
     @users = User.order("email").all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
-    end
   end
 
   # GET /users/1
@@ -20,21 +16,13 @@ class UsersController < ApplicationController
     else
       @user = User.find(session[:user_id])
     end
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
-    end
   end
 
   # GET /users/new
   # GET /users/new.xml
   def new
-    @user = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @user }
-    end
+    @user = User.new(:invitation_token => params[:invitation_token])
+    @user.email = @user.invitation.recipient_email if @user.invitation
   end
 
   # GET /users/1/edit
@@ -50,15 +38,12 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
+    if @user.save
+      session[:user_id] = @user.id
+      debugger
+      redirect_to(weighings_url, :notice => 'Ihr Account wurde erfolgreich angelegt.')
+    else
+      render :action => "new"
     end
   end
 
@@ -71,14 +56,10 @@ class UsersController < ApplicationController
       @user = User.find(session[:user_id])
     end
 
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
+    if @user.update_attributes(params[:user])
+      redirect_to(weighings_url, :notice => 'Ihr Account wurde erfolgreich aktualisiert.')
+    else
+      render :action => "edit"
     end
   end
 
@@ -87,11 +68,6 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(users_url) }
-      format.xml  { head :ok }
-    end
   end
 
   protected

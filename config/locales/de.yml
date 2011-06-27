@@ -15,6 +15,7 @@ de:
     height: 'Größe (kg)'
     login: 'Anmelden'
     authentication: 'Anmeldung'
+    submit: 'Absenden'
 
   time:
     formats:
@@ -146,12 +147,18 @@ de:
           attributes:
             password:
               confirmation: 'Die eingegebenen Passwörter stimmen nicht überein!'
+            height:
+              blank: 'Die Größe ist zur Errechnung des BMI nötig und daher ein Mussfeld!'
         weighing:
           attributes:
             date:
               taken: 'Für diesen Tag existiert bereits eine Wägung!'
             weight:
               blank: 'Bitte geben Sie ein Gewicht ein!'
+        invitation:
+          attributes:
+            recipient_email:
+              blank: "Die Emailadresse wurde nicht angegeben!"
     models:
       user: 'Benutzer'
       weighing:

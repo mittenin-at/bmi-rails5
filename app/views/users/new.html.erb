@@ -1,3 +1,4 @@
+
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
@@ -9,6 +10,7 @@
     <h2 class="title"><%= t("web-app-theme.new", :default => "New")%> <%= t("activerecord.models.user", :default => t("activerecord.labels.user", :default => "Users")) %></h2>
     <div class="inner">
       <%= form_for :user, :url => users_path, :html => { :class => :form } do |f| -%>
+        <%= f.hidden_field :invitation_token %>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>

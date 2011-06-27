@@ -1,0 +1,7 @@
+<% form_for @invitation do |f| %>
+  <p>
+    <%= f.label :recipient_email, "Die Emailadresse des Einzuladenden" %><br />
+    <%= f.text_field :recipient_email %>
+  </p>
+  <p><%= f.submit "Einladen!" %></p>
+<% end %>

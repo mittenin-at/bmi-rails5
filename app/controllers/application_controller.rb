@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 protect_from_forgery
-  before_filter :authorize, :except => :login
+  before_filter :authorize, :except => [:login]
   session :session_key => "_depot_session_id"
 
 protected

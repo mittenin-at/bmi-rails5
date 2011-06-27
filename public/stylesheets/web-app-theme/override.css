@@ -1,1 +1,110 @@
 /* Override here any style defined by web-app-theme */
+/* forms */
+
+.new_invitation .group {
+  margin-bottom: 15px;
+}
+
+.new_invitation div.left {
+  width: 20%;
+  float: left;
+}
+
+.new_invitation div.right {
+  width: 75%;
+  float: right;
+}
+
+.new_invitation .columns .column {
+  width: 48%;
+}
+
+.new_invitation .columns .left {
+  float: left;
+}
+
+.new_invitation .columns .right {
+  float: right;
+}
+
+.new_invitation label.label, .new_invitation input.text_field, .new_invitation textarea.text_area {
+  font-size: 1.2em;
+  padding: 1px 0;
+  margin: 0;
+}
+
+.new_invitation label.right {
+  text-align: right;
+}
+
+.new_invitation input.checkbox, .new_invitation input.radio {
+  margin-right: 5px;
+}
+
+.new_invitation label.checkbox, .new_invitation label.radio {
+  line-height: 1.5em;
+}
+
+.new_invitation label.label {
+  display: block;
+  padding-bottom: 2px;  
+  font-weight: bold;
+}
+
+.new_invitation div.fieldWithErrors label.label {
+  display: inline;
+}
+
+.new_invitation .fieldWithErrors .error {
+  color: red;
+}
+
+.new_invitation input.text_field, .new_invitation textarea.text_area {
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.new_invitation label.label {
+  color: #666666;
+}
+
+.new_invitation input.text_field, .new_invitation textarea.text_area {
+  width: 100%;
+  border: 1px solid #e2e2e2;
+}
+
+.new_invitation input:hover, .new_invitation textarea:hover {
+  -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px;
+  -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  border: 1px solid #a2a294;
+}
+
+.new_invitation input:focus, .new_invitation textarea:focus {
+  border: 1px solid #a2a294;
+}
+
+.new_invitation input.button {
+  background: #e2e2e2;
+  border: 1px solid #c1c1c1;
+  padding: 2px 5px;
+  cursor: pointer;
+  color: #111;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.new_invitation input.button:hover {
+  border: 1px solid #666;
+}
+
+.new_invitation .description {
+  font-style: italic;
+  color: #8C8C8C;
+  font-size: .9em;
+}
+
+.new_invitation .navform a {
+  color: #cc0000;
+}

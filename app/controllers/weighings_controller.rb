@@ -1,34 +1,21 @@
+# encoding: utf-8
 class WeighingsController < ApplicationController
   # GET /weighings
   # GET /weighings.xml
   def index
     @weighings = Weighing.order("date desc").find_all_by_user_id(session[:user_id])
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @weighings }
-    end
   end
 
   # GET /weighings/1
   # GET /weighings/1.xml
   def show
     @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @weighing }
-    end
   end
 
   # GET /weighings/new
   # GET /weighings/new.xml
   def new
     @weighing = Weighing.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @weighing }
-    end
   end
 
   # GET /weighings/1/edit
@@ -41,14 +28,10 @@ class WeighingsController < ApplicationController
   def create
     @weighing = Weighing.new(params[:weighing])
     @weighing.user_id =  session[:user_id]
-    respond_to do |format|
-      if @weighing.save
-        format.html { redirect_to(@weighing, :notice => 'Weighing was successfully created.') }
-        format.xml  { render :xml => @weighing, :status => :created, :location => @weighing }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @weighing.errors, :status => :unprocessable_entity }
-      end
+    if @weighing.save
+      redirect_to(@weighing, :notice => 'Weighing was successfully created.')
+    else
+      render :action => "new"
     end
   end
 
@@ -58,14 +41,10 @@ class WeighingsController < ApplicationController
     @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
     @weighing.user_id =  session[:user_id]
 
-    respond_to do |format|
-      if @weighing.update_attributes(params[:weighing])
-        format.html { redirect_to(@weighing, :notice => 'Weighing was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @weighing.errors, :status => :unprocessable_entity }
-      end
+    if @weighing.update_attributes(params[:weighing])
+      redirect_to(@weighing, :notice => 'Weighing was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 
@@ -74,18 +53,18 @@ class WeighingsController < ApplicationController
   def destroy
     @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
     @weighing.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(weighings_url) }
-      format.xml  { head :ok }
-    end
   end
 
   def diagram
     @weighings = Weighing.order("date").find_all_by_user_id(session[:user_id])
-    @height = User.find(session[:user_id]).height
-    @minbmi = ( Weighing.minimum(:weight, :conditions => ['id = ?', session[:user_id]]).to_i * 100 * 100 / @height / @height ).to_i - 5
-    @maxbmi = ( Weighing.maximum(:weight, :conditions => ['id = ?', session[:user_id]]).to_i * 100 * 100 / @height / @height ).to_i + 4
+    if @weighings.count == 0
+      flash[:notice] = "Noch keine Wägung eingetragen!"
+      redirect_to(:action => 'new')
+    else
+      @height = User.find(session[:user_id]).height
+      @minbmi = ( Weighing.minimum(:weight, :conditions => ['id = ?', session[:user_id]]).to_i * 100 * 100 / @height / @height ).to_i - 5
+      @maxbmi = ( Weighing.maximum(:weight, :conditions => ['id = ?', session[:user_id]]).to_i * 100 * 100 / @height / @height ).to_i + 4
+    end
   end
 end
 

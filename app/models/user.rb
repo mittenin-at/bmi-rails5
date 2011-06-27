@@ -1,10 +1,15 @@
 class User < ActiveRecord::Base
 
   has_many :weighings
+  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
+  belongs_to :invitation
 
-  validates_presence_of :email, :hashed_password
+  validates_presence_of :email, :hashed_password, :height
   validates_confirmation_of :password
   validate :password_non_blank
+  validates_presence_of :invitation_id, :message => 'is required'
+  validates_uniqueness_of :invitation_id
+  before_create :set_invitation_limit
 
   attr_accessor :password_confirmation
     
@@ -30,6 +35,14 @@ class User < ActiveRecord::Base
     create_new_salt
     self.hashed_password = User.encrypted_password(self.password, self.salt)
   end
+  
+  def invitation_token
+  invitation.token if invitation
+  end
+
+  def invitation_token=(token)
+    self.invitation = Invitation.find_by_token(token)
+  end
 
   private
 
@@ -45,5 +58,12 @@ class User < ActiveRecord::Base
     string_to_hash = password + "wibble" + salt
     Digest::SHA1.hexdigest(string_to_hash)
   end
-
+  
+  def set_invitation_limit
+    self.invitation_limit = 10
+  end
 end
+
+
+
+
