@@ -62,8 +62,8 @@ class WeighingsController < ApplicationController
       redirect_to(:action => 'new')
     else
       @height = User.find(session[:user_id]).height
-      @minbmi = ( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]).to_i * 100 * 100 / @height / @height ).to_i - 5
-      @maxbmi = ( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]).to_i * 100 * 100 / @height / @height ).to_i + 4
+      @minbmi = ( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ).to_i - 1
+      @maxbmi = ( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ).to_i + 2
     end
   end
 end

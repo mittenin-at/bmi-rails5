@@ -48,7 +48,7 @@
                      { from: 40, to: 45, color: 'rgba(100, 0, 0, 0.4)',
                        label: { text: 'Adipositas Grad III', style: { color: Highcharts.theme.textColor || '#606060' }}}
                      ]},
-      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.y +' kg'; } },
+      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.y; } },
       plotOptions: {
          spline: { lineWidth: 4,
             states: { hover: { lineWidth: 5 } },
@@ -61,7 +61,7 @@
          name: '<%= @weighings.first.user.email %>',
          data: [
          <% @weighings.each do |weighing| %>
-         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= weighing.weight * 100 * 100 / @height / @height %>],
+         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>],
          <% end %>
          ]
       }],
