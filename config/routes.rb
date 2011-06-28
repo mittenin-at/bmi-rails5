@@ -4,6 +4,8 @@ Bmi::Application.routes.draw do
   resources :weighings do
     collection do
       get 'diagram'
+      get 'select_competitor'
+      post 'compare'
     end
   end
 

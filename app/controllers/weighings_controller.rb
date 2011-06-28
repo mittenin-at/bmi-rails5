@@ -66,5 +66,24 @@ class WeighingsController < ApplicationController
       @maxbmi = ( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ).to_i + 2
     end
   end
+  
+  def select_competitor
+    @competitors= User.find_all_by_public(true)
+  end
+  
+  def compare
+    @weighings = Weighing.order("date").find_all_by_user_id(session[:user_id])
+    @compared = Weighing.order("date").find_all_by_user_id(params[:competitor][:id])
+    if @weighings.count == 0
+      flash[:notice] = "Noch keine Wägung eingetragen!"
+      redirect_to(:action => 'new')
+    else
+      @height = User.find(session[:user_id]).height
+      @height_competitor = User.find(params[:competitor][:id]).height 
+      @minbmi = 15
+      @maxbmi = 45
+    end
+  end
+
 end
 

@@ -10,8 +10,8 @@
     <ul class="wat-cf">
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", weighings_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_weighing_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.diagram")}", diagram_weighings_path %></li>
-      <li><%= link_to "#{t("web-app-theme.compare")}", select_competitor_weighings_path %></li>
+      <li><%= link_to "#{t("web-app-theme.diagram")}", diagram_weighings_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.compare")}", select_competitor_weighings_path %></li>
     </ul>
   </div>
   <div class="content">
@@ -63,6 +63,14 @@
          data: [
          <% @weighings.each do |weighing| %>
          [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>],
+         <% end %>
+         ]
+      },
+      {
+         name: '<%= @compared.first.user.email %>',
+         data: [
+         <% @compared.each do |weighing| %>
+         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= (weighing.weight * 100 * 100 / @height_competitor / @height_competitor).round(2) %>],
          <% end %>
          ]
       }],
