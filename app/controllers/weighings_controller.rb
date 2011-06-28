@@ -80,8 +80,13 @@ class WeighingsController < ApplicationController
     else
       @height = User.find(session[:user_id]).height
       @height_competitor = User.find(params[:competitor][:id]).height 
-      @minbmi = 15
-      @maxbmi = 45
+#      @minbmi = 15
+#      @maxbmi = 45
+      @minbmi = [( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ),
+                 ( Weighing.minimum(:weight, :conditions => ['user_id = ?', params[:competitor][:id]]) * 100 * 100 / @height_competitor / @height_competitor )].min.to_i - 1
+      
+      @maxbmi = [( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ),
+                 ( Weighing.minimum(:weight, :conditions => ['user_id = ?', params[:competitor][:id]]) * 100 * 100 / @height_competitor / @height_competitor )].max.to_i + 2
     end
   end
 
