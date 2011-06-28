@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627141613) do
+ActiveRecord::Schema.define(:version => 20110628222209) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "sender_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20110627141613) do
     t.boolean  "public"
     t.integer  "invitation_id"
     t.integer  "invitation_limit"
+    t.decimal  "target",           :precision => 4, :scale => 1
   end
 
   create_table "weighings", :force => true do |t|

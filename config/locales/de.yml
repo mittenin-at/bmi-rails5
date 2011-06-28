@@ -173,6 +173,7 @@ de:
         public: 'öffentlich'
         height: 'Größe (cm)'
         admin: 'Administrator'
+        target: 'Wunschgewicht (kg)'
       weighing:
         user: 'Benutzer'
         date: 'Datum'
