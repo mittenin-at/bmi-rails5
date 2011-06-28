@@ -51,9 +51,9 @@
                      ]},
       tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.y; } },
       plotOptions: {
-         spline: { lineWidth: 4,
-            states: { hover: { lineWidth: 5 } },
-            marker: { enabled: false,
+         spline: { lineWidth: 1,
+            states: { lineWidth: 3 },
+            marker: { enabled: true, symbol: 'circle', radius: 3, 
                states: { hover: { enabled: true, symbol: 'circle', radius: 5, lineWidth: 1 }}
             },
          }

@@ -29,7 +29,7 @@ class WeighingsController < ApplicationController
     @weighing = Weighing.new(params[:weighing])
     @weighing.user_id =  session[:user_id]
     if @weighing.save
-      redirect_to(@weighing, :notice => 'Weighing was successfully created.')
+      redirect_to(@weighing, :notice => 'Wägung wurde erfolgreich erzeugt.')
     else
       render :action => "new"
     end
@@ -42,7 +42,7 @@ class WeighingsController < ApplicationController
     @weighing.user_id =  session[:user_id]
 
     if @weighing.update_attributes(params[:weighing])
-      redirect_to(@weighing, :notice => 'Weighing was successfully updated.')
+      redirect_to(@weighing, :notice => 'Wägung wurde erfolgreich aktualisiert.')
     else
       render :action => "edit"
     end
