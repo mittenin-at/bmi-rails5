@@ -48,7 +48,13 @@
                        label: { text: 'Adipositas Grad II', style: { color: Highcharts.theme.textColor || '#606060' }}},
                      { from: 40, to: 45, color: 'rgba(100, 0, 0, 0.4)',
                        label: { text: 'Adipositas Grad III', style: { color: Highcharts.theme.textColor || '#606060' }}}
-                     ]},
+                     ],
+         <% unless @target.nil? %>          
+           plotLines: [{ value: <%= @target %>, color: '#001100', width: 1, zindex: 3, dashStyle: 'dashdot',
+                         label: { text: 'Wunschgewicht', style: { color: '#001100' }}
+                      }],                
+         <% end %> 
+      },
       tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.y; } },
       plotOptions: {
          spline: { lineWidth: 1,

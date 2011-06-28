@@ -13,7 +13,19 @@
           <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email")) %>:</b>
           <%= @user.email %>
         </p>
-        <% if admin? %>
+        <p>
+          <b><%= t("activerecord.attributes.user.height", :default => t("activerecord.labels.height")) %>:</b>
+          <%= @user.height %>
+        </p>
+        <p>
+          <b><%= t("activerecord.attributes.user.target", :default => t("activerecord.labels.target")) %>:</b>
+          <%= @user.target %>
+        </p>
+        <p>
+          <b><%= t("activerecord.attributes.user.public", :default => t("activerecord.labels.public")) %>:</b>
+          <%= @user.public? ? raw("&#10003;") : "X" %>
+        </p>
+        <% if admin? %>        
         <p>
           <b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin")) %>:</b>
           <%= @user.admin? ? raw("&#10003;") : "X" %>

@@ -23,7 +23,13 @@
     <span class="description">z.B.: 178</span>
   </div>
 
-    <div class="group">
+  <div class="group">
+    <%= f.label :target, t("activerecord.attributes.user.target"), :class => :label %>
+    <%= f.text_field :target, :class => 'text_field' %>
+    <span class="description">z.B.: 78</span>
+  </div>
+
+  <div class="group">
     <%= f.label :public, t("activerecord.attributes.user.public"), :class => :label %>
     <%= f.check_box :public, :class => 'checkbox' %>
     <span class="description">Kreuzen Sie dieses Feld an, wenn Sie Ihren Gewichtsverlauf veröffentlichen und mit anderen vergleichen möchten.</span>
