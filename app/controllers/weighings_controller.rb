@@ -53,6 +53,7 @@ class WeighingsController < ApplicationController
   def destroy
     @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
     @weighing.destroy
+    redirect_to(weighings_url)
   end
 
   def diagram
