@@ -18,7 +18,7 @@ private
 
   def sender_has_invitations
     unless sender.invitation_limit > 0
-      errors.add_to_base 'You have reached your limit of invitations to send.'
+      errors.add(:base, 'You have reached your limit of invitations to send.')
     end
   end
 
@@ -31,3 +31,4 @@ private
   end
 
 end
+
