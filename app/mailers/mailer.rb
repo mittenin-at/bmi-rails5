@@ -6,13 +6,12 @@ class Mailer < ActionMailer::Base
   #
   #   en.mailer.invitation.subject
   #
-  
+
   def invitation(invitation, signup_url)
-    subject    'Einladung'
-    recipients invitation.recipient_email
-    from       'einladung@bmi.mittenin.at'
-    body       :invitation => invitation, :signup_url => signup_url
+    @signup_url = signup_url
+   	mail(:to => invitation.recipient_email, :from => 'einladung@bmi.mittenin.at', :subject => 'Einladung')
     invitation.update_attribute(:sent_at, Time.now)
   end
- 
+
 end
+
