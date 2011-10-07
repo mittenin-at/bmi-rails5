@@ -12,3 +12,8 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   end
 end
 
+ActionMailer::Base.smtp_settings = {
+   :domain => "floridsdorf.mittenin.at",
+   :enable_starttls_auto => false
+}
+
