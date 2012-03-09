@@ -10,15 +10,12 @@
   <div class="content">
     <div class="inner">
       <% form_tag '/weighings/compare', :method => :post, :class => 'form' do %>
-        <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), :include_blank => false ) %>
-        <button class="button" type="submit">
-          <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.compare")}") %> <%= t("web-app-theme.compare") %>
-        </button>
+        <p>Vergleichen mit <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), :include_blank => false ) %></p>
+        <p><button class="button" type="submit">
+             <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.compare")}") %> <%= t("web-app-theme.compare") %>
+           </button></p>
       <% end %>
-      </div>
+      <p>&nbsp;</p>
     </div>
   </div>
 </div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
-

@@ -17,7 +17,7 @@ Bmi::Application.routes.draw do
 
   resources :users
 
-  root :to => "weighings", :action => "index"
+  root :to => "weighings", :action => "new"
 
 # damit wird /login umgeleitet:
   match '/login' => redirect("/authentication/login")

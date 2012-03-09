@@ -18,14 +18,12 @@
       <h1><a href="/">BMI Monitor</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
-          <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
-          <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
           <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
         </ul>
       </div>
-      <div id="main-navigation">
+      <!--<div id="main-navigation">
         <ul class="wat-cf"></ul>
-      </div>
+      </div>-->
     </div>
     <div id="wrapper" class="wat-cf">
       <div class="flash">
@@ -43,9 +41,9 @@
           </div>
         </div>
       </div>
-      <div id="sidebar">
+      <!--<div id="sidebar">
         <%= yield :sidebar %>
-      </div>
+      </div -->
     </div>
   </div>
 </body>
