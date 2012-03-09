@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33d21af5-5a0a-4d20-849e-19a14369cbaf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/web-app-theme/base.css" afterPath="$PROJECT_DIR$/public/stylesheets/web-app-theme/base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
     </list>
     <ignored path="bmi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="69" selection-start="504" selection-end="504" vertical-scroll-proportion="-6.1923075">
+            <state line="7" column="25" selection-start="248" selection-end="248" vertical-scroll-proportion="0.21441442">
               <folding />
             </state>
           </provider>
@@ -63,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="base.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/web-app-theme/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="2" selection-start="713" selection-end="713" vertical-scroll-proportion="0.029259896">
+            <state line="32" column="2" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -89,11 +89,11 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/weighings/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/weighings_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/public/stylesheets/web-app-theme/themes/default/style.css" />
         <option value="$PROJECT_DIR$/app/views/weighings/compare.html.erb" />
         <option value="$PROJECT_DIR$/app/views/weighings/select_competitor.html.erb" />
         <option value="$PROJECT_DIR$/public/stylesheets/web-app-theme/base.css" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -559,13 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="69" selection-start="504" selection-end="504" vertical-scroll-proportion="-6.1923075">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/web-app-theme/themes/default/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="7" selection-start="1309" selection-end="1314" vertical-scroll-proportion="-7.548387">
@@ -575,7 +568,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/web-app-theme/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="2" selection-start="713" selection-end="713" vertical-scroll-proportion="0.029259896">
+        <state line="32" column="2" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="25" selection-start="248" selection-end="248" vertical-scroll-proportion="0.21441442">
           <folding />
         </state>
       </provider>
