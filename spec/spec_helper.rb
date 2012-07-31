@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'database_cleaner'
+DatabaseCleaner.strategy = :truncation
 
 #HAS: 20120726, Für Capybara
 require 'capybara/rspec'
@@ -12,6 +14,7 @@ require 'capybara/rspec'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -39,6 +42,39 @@ RSpec.configure do |config|
   #     --seed 1234
 
   config.order = "random"
+
+  config.before(:each) {
+    @stefan = User.new(email: "stefan.haslinger@mittenin.at", height: "193",
+                       invitation_id: "123")
+    @stefan.password = "mittenin.at"
+    @stefan.save
+  }
+
+  def login
+    visit "/"
+    fill_in "email", :with => "stefan.haslinger@mittenin.at"
+    fill_in "password", :with => "mittenin.at"
+    click_button "Anmelden"
+  end
+
+  def select_by_id(id, options = {})
+    field = options[:from]
+    option_xpath = "//*[@id='#{field}']/option[#{id}]"
+    option_text = find(:xpath, option_xpath).text
+    page.select option_text, :from => field
+  end
+
+  def select_a_date(date, options = {})
+    raise ArgumentError, 'from is a required option' if options[:from].blank?
+    field = options[:from].to_s
+    page.select date.year.to_s,               :from => "#{field}_1i"
+    page.select t(Date::MONTHNAMES)[date.month], :from => "#{field}_2i"
+    page.select date.day.to_s,                :from => "#{field}_3i"
+  end
+
+  config.after do
+    DatabaseCleaner.clean
+  end
 end
 
 module ::RSpec::Core

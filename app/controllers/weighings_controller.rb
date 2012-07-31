@@ -15,7 +15,8 @@ class WeighingsController < ApplicationController
   # GET /weighings/new
   # GET /weighings/new.xml
   def new
-    @last_weight = Weighing.find_all_by_user_id(session[:user_id]).last.weight
+    last_weighing = Weighing.find_all_by_user_id(session[:user_id]).last
+    @last_weight = last_weighing.weight if last_weighing
     @weighing = Weighing.new
   end
 
@@ -30,7 +31,7 @@ class WeighingsController < ApplicationController
     @weighing = Weighing.new(params[:weighing])
     @weighing.user_id =  session[:user_id]
     if @weighing.save
-      redirect_to(:action => :diagram, :notice => 'Wägung wurde erfolgreich erzeugt.')
+      redirect_to(:action => "diagram", :notice => 'Wägung wurde erfolgreich erzeugt.')
     else
       render :action => "new"
     end
