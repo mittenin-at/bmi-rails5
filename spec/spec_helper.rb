@@ -45,16 +45,31 @@ RSpec.configure do |config|
 
   config.before(:each) {
     @stefan = User.new(email: "stefan.haslinger@mittenin.at", height: "193",
-                       invitation_id: "123")
+                       invitation_id: "123", public: "true")
     @stefan.password = "mittenin.at"
-    @stefan.save
+    @stefan.save!
+    @michael = User.new(email: "michael.stranka@mittenin.at", height: "175",
+                       invitation_id: "0815", public: "true")
+    @michael.password = "mittenin.at"
+    @michael.save!
+    @angsthase = User.new(email: "angsthase@mittenin.at", height: "175",
+                          invitation_id: "0816")
+    @angsthase.password = "mittenin.at"
+    @angsthase.save!
   }
 
-  def login
+  def login(user)
     visit "/"
-    fill_in "email", :with => "stefan.haslinger@mittenin.at"
-    fill_in "password", :with => "mittenin.at"
+    fill_in "email", :with => user.email
+    fill_in "password", :with => user.password
     click_button "Anmelden"
+  end
+
+  def enter_weighing(weight, date)
+    visit "/weighings/new"
+    fill_in "Gewicht", :with => weight
+    select_a_date(date, :from => "weighing_date")
+    click_button "Speichern"
   end
 
   def select_by_id(id, options = {})

@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe "authentication/login.html.erb", :type => :spec do
   it "allows successfull login" do
-    login
+    login(@stefan)
     page.should have_selector("h2.title", :text => "Neuer Eintrag Wägung")
   end
 
