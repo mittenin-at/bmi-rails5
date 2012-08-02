@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33d21af5-5a0a-4d20-849e-19a14369cbaf" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/_sidebar.html.erb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/users/_sidebar.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/weighings/_sidebar.html.erb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/authentication.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/authentication.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/users/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/web-app-theme/themes/default/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/web-app-theme/themes/default/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/views/weighings/compare.html.erb_spec.rb" afterPath="$PROJECT_DIR$/spec/views/weighings/compare.html.erb_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/compare.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/compare.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/diagram.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/diagram.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/index.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/new.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/select_competitor.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/select_competitor.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/show.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/show.html.erb" />
     </list>
     <ignored path="bmi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,35 +39,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
+      <file leaf-file-name="_sidebar.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="8" selection-start="448" selection-end="448" vertical-scroll-proportion="-5.0">
-              <folding>
-                <element signature="e#146#189#1" expanded="true" />
-                <element signature="e#242#283#1" expanded="true" />
-                <element signature="e#353#396#1" expanded="true" />
-                <element signature="e#490#533#1" expanded="true" />
-                <element signature="n#t(&quot;web-app-theme.edit&quot;, :default =&gt; &quot;Edit&quot;)#0;n#!!top" expanded="true" />
-                <element signature="n#t(&quot;activerecord.models.user&quot;, :default =&gt; t(&quot;activerecord.labels.user&quot;, :default =&gt; &quot;Users&quot;))#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="36" selection-start="95" selection-end="95" vertical-scroll-proportion="-2.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="authentication.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/authentication.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="372" selection-end="372" vertical-scroll-proportion="0.31707317">
+            <state line="15" column="74" selection-start="845" selection-end="845" vertical-scroll-proportion="0.5739796">
               <folding />
             </state>
           </provider>
@@ -78,22 +61,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/weighings_controller.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/spec/request_macros.rb" />
-        <option value="$PROJECT_DIR$/app/views/weighings/diagram.html.erb" />
-        <option value="$PROJECT_DIR$/spec/views/weighings/diagram.html.erb_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/views/weighings/new.html.erb_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/views/authentication/login.html.erb_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/weighings/compare.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/weighings/select_competitor.html.erb" />
-        <option value="$PROJECT_DIR$/spec/views/weighings/compare.html.erb_spec.rb" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/users/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/_sidebar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/authentication.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/weighings/diagram.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/weighings/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/weighings/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/weighings/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/weighings/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/weighings/compare.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/weighings/select_competitor.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_sidebar.html.erb" />
       </list>
     </option>
   </component>
@@ -240,7 +223,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
+              <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,7 +245,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
+              <option name="myItemId" value="authentication" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -291,6 +274,11 @@
     <property name="options.lastSelected" value="preferences.lookFeel" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/layouts" />
+    </key>
   </component>
   <component name="RunManager" selected="Rails.Development: bmi">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
@@ -414,6 +402,15 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method>
+        <option name="RakeTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method>
         <option name="RakeTask" enabled="false" />
       </method>
@@ -588,8 +585,9 @@
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32890856" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16990702" sideWeight="0.6703418" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16990702" sideWeight="0.67109144" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -599,7 +597,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -661,103 +658,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="84" selection-start="1923" selection-end="1923" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/weighings/select_competitor.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="99" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.3902439" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/weighings/compare.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="84" selection-start="3255" selection-end="3255" vertical-scroll-proportion="0.31707317" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/views/weighings/diagram.html.erb_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="41" selection-start="232" selection-end="232" vertical-scroll-proportion="0.21394612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="75" selection-start="436" selection-end="436" vertical-scroll-proportion="0.3220859">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="39" selection-start="164" selection-end="164" vertical-scroll-proportion="0.04601227">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="45" selection-start="287" selection-end="287" vertical-scroll-proportion="0.41411042">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/views/weighings/new.html.erb_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="135" selection-end="179" vertical-scroll-proportion="0.1380368">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/views/weighings/compare.html.erb_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="60" selection-start="665" selection-end="665" vertical-scroll-proportion="0.48312885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.1433121">
-          <folding>
-            <element signature="e#146#189#1" expanded="true" />
-            <element signature="e#242#283#1" expanded="true" />
-            <element signature="e#353#396#1" expanded="true" />
-            <element signature="e#485#528#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="8" selection-start="448" selection-end="448" vertical-scroll-proportion="-5.0">
-          <folding>
-            <element signature="e#146#189#1" expanded="true" />
-            <element signature="e#242#283#1" expanded="true" />
-            <element signature="e#353#396#1" expanded="true" />
-            <element signature="e#490#533#1" expanded="true" />
-            <element signature="n#t(&quot;web-app-theme.edit&quot;, :default =&gt; &quot;Edit&quot;)#0;n#!!top" expanded="true" />
-            <element signature="n#t(&quot;activerecord.models.user&quot;, :default =&gt; t(&quot;activerecord.labels.user&quot;, :default =&gt; &quot;Users&quot;))#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/web-app-theme/override.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="51" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.9539877">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/web-app-theme/themes/default/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="52" selection-start="349" selection-end="349" vertical-scroll-proportion="0.4225352">
@@ -765,16 +665,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/authentication.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="36" selection-start="95" selection-end="95" vertical-scroll-proportion="-2.5">
+        <state line="36" column="18" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.61734694">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/authentication.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="372" selection-end="372" vertical-scroll-proportion="0.31707317">
+        <state line="53" column="0" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.8316327">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/authentication/login.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1699" selection-end="1699" vertical-scroll-proportion="0.4260204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/weighings/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="8" selection-start="1423" selection-end="1490" vertical-scroll-proportion="0.82857144">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/weighings/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="53" selection-start="915" selection-end="915" vertical-scroll-proportion="0.78125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/weighings/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="53" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.84375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/weighings/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="53" selection-start="924" selection-end="924" vertical-scroll-proportion="0.7421875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/weighings/diagram.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="53" selection-start="4539" selection-end="4539" vertical-scroll-proportion="0.9191375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/weighings/compare.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="0" selection-start="4513" selection-end="4513" vertical-scroll-proportion="0.92346936">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="53" selection-start="2137" selection-end="2137" vertical-scroll-proportion="0.8518519">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="53" selection-start="833" selection-end="833" vertical-scroll-proportion="0.7037037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/weighings/select_competitor.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="1125" selection-end="1125" vertical-scroll-proportion="0.84183675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="53" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.8518519">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidebar.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="74" selection-start="845" selection-end="845" vertical-scroll-proportion="0.5739796">
           <folding />
         </state>
       </provider>
