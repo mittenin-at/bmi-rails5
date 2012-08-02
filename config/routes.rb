@@ -15,6 +15,7 @@ Bmi::Application.routes.draw do
   get "authentication/logout"
   post "invitations/create"
 
+
   resources :users
 
   root :to => "authentication", :action => "login"

@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
         session[:user_id] = user.id
         uri = session[:original_uri]
         session[:original_uri] = nil
-        redirect_to(uri || {:action => "new"})
+        redirect_to(uri || {controller: "weighings", action: "new"})
       else
         flash.now[:notice] = "Ungültige Benutzername / Passwort - Kombination"
       end
