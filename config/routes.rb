@@ -17,14 +17,9 @@ Bmi::Application.routes.draw do
 
   resources :users
 
-  root :to => "weighings", :action => "new"
+  root :to => "authentication", :action => "login"
 
 # damit wird /login umgeleitet:
-  match '/login' => redirect("/authentication/login")
-  match '/logout' => redirect("/authentication/logout")
-
-# und nun noch sonstiger mist auf die Startseite:
-  match '*path' => redirect("/")
-
+  match '/login', :controller  => "authentication", :action => "login"
+  match '/logout', :controller => "authentication", :action => "logout"
 end
-

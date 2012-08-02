@@ -6,7 +6,7 @@ protected
   def authorize
     unless User.find_by_id(session[:user_id])
       session[:original_uri] = request.fullpath
-      flash[:notice] = "Bitte anmelden!"
+      flash[:notice] ||= "Bitte anmelden!"
       redirect_to :controller => :authentication, :action => :login
     end
   end
