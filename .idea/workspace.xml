@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33d21af5-5a0a-4d20-849e-19a14369cbaf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/weighings_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/weighings_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/authentication/login.html.erb" afterPath="$PROJECT_DIR$/app/views/authentication/login.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/users/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/diagram.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/diagram.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/index.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/show.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/de.yml" afterPath="$PROJECT_DIR$/config/locales/de.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/views/weighings/compare.html.erb_spec.rb" afterPath="$PROJECT_DIR$/spec/views/weighings/compare.html.erb_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/compare.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/compare.html.erb" />
     </list>
     <ignored path="bmi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,16 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="diagram.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/weighings/diagram.html.erb">
+      <file leaf-file-name="compare.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/weighings/compare.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="125" selection-start="3624" selection-end="3624" vertical-scroll-proportion="0.3483146">
-              <folding>
-                <element signature="e#339#382#1" expanded="true" />
-                <element signature="e#435#476#1" expanded="true" />
-                <element signature="e#546#572#1" expanded="true" />
-                <element signature="e#632#658#1" expanded="true" />
-              </folding>
+            <state line="79" column="19" selection-start="4370" selection-end="4370" vertical-scroll-proportion="0.5730337">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,7 +51,6 @@
         <option value="$PROJECT_DIR$/app/controllers/authentication_controller.rb" />
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/spec/views/weighings/compare.html.erb_spec.rb" />
-        <option value="$PROJECT_DIR$/app/views/weighings/compare.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/authentication/login.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
@@ -82,6 +61,7 @@
         <option value="$PROJECT_DIR$/config/locales/de.yml" />
         <option value="$PROJECT_DIR$/app/views/weighings/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/weighings/diagram.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/weighings/compare.html.erb" />
       </list>
     </option>
   </component>
@@ -614,15 +594,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="113" selection-start="978" selection-end="978" vertical-scroll-proportion="0.36877078">
-          <folding>
-            <element signature="n#t(&quot;web-app-theme.logout&quot;, :default =&gt; &quot;Logout&quot;)#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.06437768">
@@ -727,13 +698,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/weighings/diagram.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="125" selection-start="3624" selection-end="3624" vertical-scroll-proportion="0.3483146">
+        <state line="76" column="16" selection-start="3999" selection-end="4325" vertical-scroll-proportion="0.6179775">
           <folding>
             <element signature="e#339#382#1" expanded="true" />
             <element signature="e#435#476#1" expanded="true" />
             <element signature="e#546#572#1" expanded="true" />
             <element signature="e#632#658#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/weighings/compare.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="19" selection-start="4370" selection-end="4370" vertical-scroll-proportion="0.5730337">
+          <folding />
         </state>
       </provider>
     </entry>
