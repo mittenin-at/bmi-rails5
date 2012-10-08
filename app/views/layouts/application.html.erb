@@ -24,7 +24,9 @@
       <div id="main-navigation">
         <ul class="wat-cf">
           <li <%= "class='active'" if controller_name == "weighings" %>><%= link_to "BMI", weighings_path %></li>
-          <li <%= "class='active'" if controller_name == "users" %>><%= link_to "Profil", user_path(current_user) %></li>
+          <% if current_user %>
+            <li <%= "class='active'" if controller_name == "users" %>><%= link_to "Profil", user_path(current_user) %></li>
+          <% end %>
         </ul>
       </div>
     </div>

@@ -1,6 +1,6 @@
 class InvitationsController < ApplicationController
   skip_filter :authorize
-  
+
   def new
     @invitation = Invitation.new
   end
@@ -8,7 +8,6 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new(params[:invitation])
     @invitation.sender = User.find_by_id(session[:user_id])
-    debugger
     if @invitation.save
       if User.find_by_id(session[:user_id])
         Mailer.deliver_invitation(@invitation, signup_url(@invitation.token))
@@ -24,4 +23,3 @@ class InvitationsController < ApplicationController
     end
   end
 end
-

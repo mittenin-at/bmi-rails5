@@ -13,8 +13,8 @@ describe "weighing/compare.html.html.erb", :type => :spec do
     login(@michael)
     enter_weighing(100, @date)
     visit select_competitor_weighings_path
-    page.should have_selector("option", text: @michael.email)
-    page.select @stefan.email, :from => "competitor_id"
+    page.should have_selector("option", text: @stefan.email)
+    page.select @stefan.email, from: "competitor_id"
     click_button "Vergleichen"
     page.current_path.should == compare_weighings_path
   end

@@ -17,6 +17,8 @@ class WeighingsController < ApplicationController
   def new
     last_weighing = Weighing.find_all_by_user_id(session[:user_id]).last
     @last_weight = last_weighing.weight if last_weighing
+    @last_abdomnal_girth = last_weighing.abdominal_girth if last_weighing
+    @last_adipose = last_weighing.adipose if last_weighing
     @weighing = Weighing.new
   end
 

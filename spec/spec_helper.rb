@@ -46,7 +46,9 @@ RSpec.configure do |config|
   config.before(:each) {
     @stefan = User.new(email: "stefan.haslinger@mittenin.at", height: "193",
                        invitation_id: "123", public: "true")
+
     @stefan.password = "mittenin.at"
+
     @stefan.save!
     @michael = User.new(email: "michael.stranka@mittenin.at", height: "175",
                        invitation_id: "0815", public: "true")
@@ -98,5 +100,3 @@ module ::RSpec::Core
     include Capybara::RSpecMatchers
   end
 end
-
-
