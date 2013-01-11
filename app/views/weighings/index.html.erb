@@ -13,6 +13,8 @@
       <table class="table">
         <tr>
           <th><%= Weighing.human_attribute_name('weight')%></th>
+          <th><%= Weighing.human_attribute_name('abdominal_girth')  %></th>
+          <th><%= Weighing.human_attribute_name('adipose')  %></th>
           <th><%= Weighing.human_attribute_name('date')  %></th>
           <th class="last">&nbsp;</th>
         </tr>
@@ -21,7 +23,14 @@
           <td>
             <%= link_to weighing.weight, weighing_path(weighing) %>
           </td>
-                    <td>
+          <td>
+            <%= weighing.abdominal_girth %>
+          </td>
+          <td>
+            <%= weighing.adipose %>
+          </td>
+
+          <td>
             <%= l weighing.date %>
           </td>
           <td class="last">
@@ -41,5 +50,5 @@
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
 

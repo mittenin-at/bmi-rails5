@@ -16,6 +16,7 @@
   </div>
   <div class="content">
     <div class="inner">
+      <h2>Diagramm des zeitlichen Verlaufs Ihres Body Mass Index</h2>
         <p>
 
 <script type="text/javascript" charset="utf-8">
@@ -55,7 +56,7 @@
                       }],                
          <% end %> 
       },
-      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.y; } },
+      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.point.weight +" kg"; } },
       plotOptions: {
          spline: { lineWidth: 1,
             states: { lineWidth: 3 },
@@ -67,8 +68,11 @@
       series: [{
          name: '<%= @weighings.first.user.email %>',
          data: [
-         <% @weighings.each do |weighing| %>
-         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>],
+         <% @weighings.each do |weighing| %> {
+           x: Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>),
+           y: <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>,
+           weight: <%= weighing.weight %>
+         },
          <% end %>
          ]
       }],
@@ -81,5 +85,5 @@
     </div>
   </div>
 </div>
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
 

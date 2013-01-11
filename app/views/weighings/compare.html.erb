@@ -1,4 +1,4 @@
-<% content_for :script do %>
+<%= content_for :script do %>
   <%= javascript_include_tag "jquery-1.6.min", "rails", "highcharts", "modules/exporting", "themes/grid" %>
   <script type="text/javascript">
     jQuery.noConflict();
@@ -49,7 +49,7 @@
                      { from: 40, to: 45, color: 'rgba(100, 0, 0, 0.4)',
                        label: { text: 'Adipositas Grad III', style: { color: Highcharts.theme.textColor || '#606060' }}}
                      ]},
-      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.y; } },
+      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.point.weight +" kg"; } },
       plotOptions: {
          spline: { lineWidth: 1,
             states: { lineWidth: 3 },
@@ -60,18 +60,24 @@
       },
       series: [{
          name: '<%= @weighings.first.user.email %>',
-         data: [
-         <% @weighings.each do |weighing| %>
-         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>],
-         <% end %>
-         ]
+        data: [
+          <% @weighings.each do |weighing| %> {
+            x: Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>),
+            y: <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>,
+            weight: <%= weighing.weight %>
+          },
+          <% end %>
+        ]
       },
       {
          name: '<%= @compared.first.user.email %>',
-         data: [
-         <% @compared.each do |weighing| %>
-         [ Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>), <%= (weighing.weight * 100 * 100 / @height_competitor / @height_competitor).round(2) %>],
-         <% end %>
+        data: [
+          <% @compared.each do |weighing| %> {
+            x: Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>),
+            y: <%= (weighing.weight * 100 * 100 / @height_competitor / @height_competitor).round(2) %>,
+            weight: <%= weighing.weight %>
+          },
+          <% end %>
          ]
       }],
       navigation: { menuItemStyle: { fontSize: '10px' } }
@@ -83,3 +89,4 @@
     </div>
   </div>
 </div>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>

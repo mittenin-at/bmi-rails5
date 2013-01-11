@@ -17,6 +17,7 @@ de:
     authentication: 'Anmeldung'
     submit: 'Absenden'
     compare: 'Vergleichen'
+    logout: "Logout"
 
   time:
     formats:
@@ -178,9 +179,12 @@ de:
         admin: 'Administrator'
         target: 'Wunschgewicht (kg)'
       weighing:
-        user: 'Benutzer'
+        abdominal_girth: 'Bauchumfang (cm)'
+        adipose: 'Körperfett (%)'
         date: 'Datum'
+        user: 'Benutzer'
         weight: 'Gewicht (kg)'
+
 
       messages:
         inclusion: "ist kein gültiger Wert"
