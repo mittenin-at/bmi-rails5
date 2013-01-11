@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33d21af5-5a0a-4d20-849e-19a14369cbaf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/weighings/compare.html.erb" afterPath="$PROJECT_DIR$/app/views/weighings/compare.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bmi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,17 +23,7 @@
     <favorites_list name="bmi" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="compare.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/weighings/compare.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="19" selection-start="4370" selection-end="4370" vertical-scroll-proportion="0.5730337">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -73,10 +63,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
-    <option name="y" value="24" />
-    <option name="width" value="1871" />
-    <option name="height" value="1056" />
+    <option name="x" value="48" />
+    <option name="y" value="-4" />
+    <option name="width" value="1873" />
+    <option name="height" value="1085" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -123,8 +113,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -213,15 +201,18 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.externalTools" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ivellio-vellin-webshop" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -345,13 +336,6 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="" />
@@ -383,6 +367,13 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="test" type="RakeRunConfigurationType" factoryName="Rake">
@@ -517,14 +508,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="24" width="1871" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="48" y="-4" width="1873" height="1085" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20931506" sideWeight="0.0" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21150684" sideWeight="0.0" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -596,123 +587,82 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.06437768">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.06437768" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20110615204303_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20110625052642_add_height_to_user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20110625052708_add_public_to_user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20110615204320_create_weighings.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="54" selection-start="166" selection-end="194" vertical-scroll-proportion="0.10729614">
-          <folding />
-        </state>
+        <state line="5" column="54" selection-start="166" selection-end="194" vertical-scroll-proportion="0.10729614" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20121008081509_add_fields_to_weighings.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="72" selection-start="316" selection-end="316" vertical-scroll-proportion="0.2360515">
-          <folding />
-        </state>
+        <state line="11" column="72" selection-start="316" selection-end="316" vertical-scroll-proportion="0.2360515" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/weighings_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="31" selection-start="27" selection-end="27" vertical-scroll-proportion="0.042918455">
-          <folding />
-        </state>
+        <state line="2" column="31" selection-start="27" selection-end="27" vertical-scroll-proportion="0.042918455" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="25" selection-start="275" selection-end="275" vertical-scroll-proportion="0.3004292">
-          <folding />
-        </state>
+        <state line="14" column="25" selection-start="275" selection-end="275" vertical-scroll-proportion="0.3004292" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/weighings_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="76" selection-start="708" selection-end="708" vertical-scroll-proportion="0.4570185">
-          <folding />
-        </state>
+        <state line="21" column="76" selection-start="708" selection-end="708" vertical-scroll-proportion="0.4570185" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/weighings/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="101" selection-start="817" selection-end="817" vertical-scroll-proportion="0.31007752">
-          <folding />
-        </state>
+        <state line="14" column="101" selection-start="817" selection-end="817" vertical-scroll-proportion="0.31007752" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/de.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="42" selection-start="4798" selection-end="4798" vertical-scroll-proportion="0.4549356">
-          <folding />
-        </state>
+        <state line="181" column="42" selection-start="4798" selection-end="4798" vertical-scroll-proportion="0.4549356" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/weighings/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/weighings/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="53" selection-start="992" selection-end="992" vertical-scroll-proportion="0.53932583">
-          <folding />
-        </state>
+        <state line="24" column="53" selection-start="992" selection-end="992" vertical-scroll-proportion="0.53932583" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/weighings/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="940" selection-end="940" vertical-scroll-proportion="0.3986711">
-          <folding>
-            <element signature="e#203#225#1" expanded="true" />
-            <element signature="e#280#306#1" expanded="true" />
-            <element signature="e#366#392#1" expanded="true" />
-          </folding>
-        </state>
+        <state line="18" column="0" selection-start="940" selection-end="940" vertical-scroll-proportion="0.3986711" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/weighings/diagram.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="16" selection-start="3999" selection-end="4325" vertical-scroll-proportion="0.6179775">
-          <folding>
-            <element signature="e#339#382#1" expanded="true" />
-            <element signature="e#435#476#1" expanded="true" />
-            <element signature="e#546#572#1" expanded="true" />
-            <element signature="e#632#658#1" expanded="true" />
-          </folding>
-        </state>
+        <state line="76" column="16" selection-start="3999" selection-end="4325" vertical-scroll-proportion="0.6179775" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/weighings/compare.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="19" selection-start="4370" selection-end="4370" vertical-scroll-proportion="0.5730337">
-          <folding />
-        </state>
+        <state line="79" column="19" selection-start="4370" selection-end="4370" vertical-scroll-proportion="0.5730337" />
       </provider>
     </entry>
   </component>
