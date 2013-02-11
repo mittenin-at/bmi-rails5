@@ -1,5 +1,5 @@
 class InvitationsController < ApplicationController
-  skip_filter :authorize
+  skip_filter :authorize, :only => [:index]
 
   def new
     @invitation = Invitation.new
@@ -21,5 +21,9 @@ class InvitationsController < ApplicationController
       flash[:notice] = "Ihre E-Mailadresse ist dem System bereits bekannt."
       redirect_to authentication_login_path
     end
+  end
+
+  def index
+    @invitations = Invitation.all
   end
 end
