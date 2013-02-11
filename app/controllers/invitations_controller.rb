@@ -11,7 +11,7 @@ class InvitationsController < ApplicationController
     @invitation.sender = User.find_by_id(session[:user_id])
     if @invitation.save
       if User.find_by_id(session[:user_id])
-        Mailer.invitation.deliver(@invitation, signup_url(@invitation.token))
+        Mailer.invitation(@invitation, signup_url(@invitation.token)).deliver
         flash[:notice] = "Ihre Einladung wurde gesendet."
         redirect_to root_path
       else
@@ -27,7 +27,7 @@ class InvitationsController < ApplicationController
   def mail
     @invitation = Invitation.find(params[:id])
     if User.find_by_id(session[:user_id]).admin?
-      Mailer.invitation.deliver(@invitation, signup_url(@invitation.token))
+      Mailer.invitation(@invitation, signup_url(@invitation.token)).deliver
       flash[:notice] = "Einladung wurde gesendet."
     else
       flash[:error] = "Keine Berechtigung"
