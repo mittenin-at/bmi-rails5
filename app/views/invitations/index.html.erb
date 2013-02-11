@@ -11,12 +11,19 @@
       <table class="table">
         <tr>
           <th><%= Invitation.human_attribute_name('recipient_email') %></th>
-          <th class="last"><%= t("web-app-theme.created_at")  %></th>
+          <th><%= Invitation.human_attribute_name('invitation_token') %></th>
+          <th><%= t("web-app-theme.created_at")  %></th>
+          <th></th>
+          <th class="last"></th>
         </tr>
         <% @invitations.each do |invitation| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td><%= invitation.recipient_email %></td>
+          <td><%= invitation.token %></td>
           <td><%= l(invitation.created_at, :format => :long_all) %></td>
+          <td><%= link_to "Einladung versenden", mail_invitation_path(invitation) %></td>
+          <td><%= link_to "#{t("web-app-theme.delete")}", invitation_path(invitation), :method => :delete, :confirm => "#{t("web-app-theme.confirm")}" %></td>
+          </td>
         </tr>
         <% end -%>
       </table>

@@ -1,5 +1,9 @@
 Bmi::Application.routes.draw do
-  resources :invitations
+  resources :invitations do
+    member do
+      get 'mail'
+    end
+  end
 
   resources :weighings do
     collection do
@@ -10,11 +14,10 @@ Bmi::Application.routes.draw do
   end
 
   match '/signup/:invitation_token' => 'users#new', :as => :signup
- 
+
   match 'authentication/login', :controller => 'authentication', :action => 'login'
   get "authentication/logout"
   post "invitations/create"
-
 
   resources :users
 
