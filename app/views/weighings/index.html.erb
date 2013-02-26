@@ -1,24 +1,24 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list")}", weighings_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new")}", new_weighing_path %></li>
-      <li><%= link_to "#{t("web-app-theme.diagram")}", diagram_weighings_path %></li>
-      <li><%= link_to "#{t("web-app-theme.compare")}", select_competitor_weighings_path %></li>
-    </ul>
-  </div>
-  <div class="content">
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> <%= Weighing.human_name( :count => '2' ) %></h2>
-    <div class="inner">
-      <table class="table">
-        <tr>
-          <th><%= Weighing.human_attribute_name('weight')%></th>
-          <th><%= Weighing.human_attribute_name('abdominal_girth')  %></th>
-          <th><%= Weighing.human_attribute_name('adipose')  %></th>
-          <th><%= Weighing.human_attribute_name('date')  %></th>
-          <th class="last">&nbsp;</th>
-        </tr>
-        <% @weighings.each do |weighing| -%>
+<% content_for :sidebar do %>
+  <li class="first active"><%= link_to "#{t("list")}", weighings_path  %></li>
+  <li><%= link_to "#{t("new")}", new_weighing_path %></li>
+  <li><%= link_to "#{t("diagram")}", diagram_weighings_path %></li>
+  <li><%= link_to "#{t("compare")}", select_competitor_weighings_path %></li>
+<% end %>
+    
+<h1><%= t("all")  %> <%= Weighing.model_name.human( :count => '2' ) %></h1>
+<div class="inner">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= Weighing.human_attribute_name('weight')%></th>
+        <th><%= Weighing.human_attribute_name('abdominal_girth')  %></th>
+        <th><%= Weighing.human_attribute_name('adipose')  %></th>
+        <th><%= Weighing.human_attribute_name('date')  %></th>
+        <th class="last">&nbsp;</th>
+      </tr>
+    <thead>
+    <tbody>
+      <% @weighings.each do |weighing| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
             <%= link_to weighing.weight, weighing_path(weighing) %>
@@ -34,21 +34,12 @@
             <%= l weighing.date %>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", weighing_path(weighing) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_weighing_path(weighing) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", weighing_path(weighing), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to t("show"), weighing_path(weighing), class: "btn btn-primary" %> 
+            <%= link_to t("edit"), edit_weighing_path(weighing), class: "btn btn-warning" %> 
+            <%= link_to t("delete"), weighing_path(weighing), :method => :delete, :confirm => t("confirm"), class: "btn btn-danger" %>
           </td>
         </tr>
-        <% end -%>
-      </table>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-
-      </div>
-    </div>
-  </div>
+      <% end -%>
+    </tbody>
+  </table>
 </div>
-
-<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
-

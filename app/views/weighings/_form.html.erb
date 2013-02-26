@@ -1,33 +1,23 @@
-  <div class="group">
-    <%= f.label :date, Weighing.human_attribute_name('date'), :class => :label %>
-    <%= f.date_select :date, :class => 'text_field' %><br />
-    <span class="description">Das Datum der Wägung. Pro Tag kann nur eine Wägung eingegeben werden.</span>
-  </div>
+  <fieldset>
+    <%= f.label :date, Weighing.human_attribute_name('date') %>
+    <%= f.date_select :date, {},  html_options = { class: "input-small" } %>
+    <span class="help-block">Das Datum der Wägung. Pro Tag kann nur eine Wägung eingegeben werden.</span>
 
-  <div class="group">
-    <%= f.label :weight, Weighing.human_attribute_name('weight'), :class => :label %>
-    <%= f.text_field :weight, :class => 'number_field', :value => @last_weight %> kg<br />
-    <span class="description">Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 78.3</span>
-  </div>
+    <%= f.label :weight, Weighing.human_attribute_name('weight') %>
+    <%= f.text_field :weight, :class => 'number_field', :value => @last_weight %> kg
+    <span class="help-block">Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 78.3</span>
 
-  <div class="group">
-    <%= f.label :abdominal_girth, Weighing.human_attribute_name('abdominal_girth'), :class => :label %>
-    <%= f.text_field :abdominal_girth, :class => 'number_field', :value => @last_abdominal_gith %> cm<br />
-    <span class="description">Bauchumfang in ganzen Zentimetern.</span>
-  </div>
+    <%= f.label :abdominal_girth, Weighing.human_attribute_name('abdominal_girth') %>
+    <%= f.text_field :abdominal_girth, :class => 'number_field', :value => @last_abdominal_gith %> cm
+    <span class="help-block">Bauchumfang in ganzen Zentimetern.</span>
 
-  <div class="group">
-    <%= f.label :adipose, Weighing.human_attribute_name('adipose'), :class => :label %>
-    <%= f.text_field :adipose, :class => 'number_field', :value => @last_adipose %> %<br />
-    <span class="description">Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 32.1</span>
-  </div>
+    <%= f.label :adipose, Weighing.human_attribute_name('adipose') %>
+    <%= f.text_field :adipose, :class => 'number_field', :value => @last_adipose %> %
+    <span class="help-block">Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 32.1</span>
+  </fieldset>
 
-
-  <div class="group navform wat-cf">
-  <button class="button" type="submit">
-    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save")}") %> <%= t("web-app-theme.save") %>
-  </button>
-  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
-	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), weighings_path, :class => "text_button_padding link_button" %>
+  <% f.submit t("save") %>
+  
+	<%= link_to t("cancel"), weighings_path, :class => "btn btn-warning" %>
 </div>
 
