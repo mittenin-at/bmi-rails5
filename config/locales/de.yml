@@ -169,6 +169,9 @@ de:
       weighing:
         one: 'Wägung'
         other: 'Wägungen'
+      invitation:
+        one: 'Einladung'
+        other: 'Einladungen'
     attributes:
       user:
         email: 'Emailadresse'
