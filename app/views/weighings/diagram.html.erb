@@ -30,15 +30,18 @@
       return d3.time.format('%d.%m.%Y')(new Date(d))
     });    
     
+    chart.forceY([<%= @minbmi %>, <%= @maxbmi %>]);
+
     chart.yAxis
-        .tickFormat(d3.format(',.i'));
+        .tickFormat(d3.format(',.1f'));
 
    d3.select('#chart svg')
        .datum(plotData())
        .transition().duration(500)
        .call(chart);
+
   
-   nv.utils.windowResize(chart.update);
+   nv.utils.windowResize(chart.update);   
 
    return chart;
 });
@@ -52,13 +55,53 @@ function plotData() {
       <% end %>      
       ]
   },
-  {key: "Normalgewicht <-> Übergewicht", color: "#556233", values: [{x: <%= @weighings.first.date.to_time.to_i * 1000 %>, y: 25}, 
-                                                            {x: <%= @weighings.last.date.to_time.to_i * 1000 %>, y: 25}]},  
-  {key: "Übergewicht <-> Adipositas", color: "#C44D58", values: [{x: <%= @weighings.first.date.to_time.to_i * 1000 %>, y: 30}, 
-                                                            {x: <%= @weighings.last.date.to_time.to_i * 1000 %>, y: 30}]},  
+
+  <% if 18.5 < @maxbmi && 18.5 > @minbmi %>
+    {key: "Untergewicht <-> Normalgewicht", color: "#3DFFFF", values: [
+      <% @weighings.each do |weighing| %>
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 18.5}, 
+      <% end %>
+    ]},  
+  <% end %>
+
+  <% if 25 < @maxbmi && 25 > @minbmi %>
+    {key: "Normalgewicht <-> Übergewicht", color: "#00FF80", values: [
+      <% @weighings.each do |weighing| %>
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 25}, 
+      <% end %>
+    ]},  
+  <% end %>
+
+  <% if 30 < @maxbmi && 30 > @minbmi %>
+  {key: "Übergewicht <-> Adipositas Grad 1", color: "#FFFF00", values: [
+      <% @weighings.each do |weighing| %>
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 30}, 
+      <% end %>
+    ]},  
+  <% end %>
+
+  <% if 35 < @maxbmi && 35 > @minbmi %>
+  {key: "Adipositas Grad 1 <-> Adipositas Grad 2", color: "#FF6633", values: [
+    <% @weighings.each do |weighing| %>
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 35}, 
+      <% end %>
+    ]},  
+  <% end %>
+
+  <% if 40 < @maxbmi && 40 > @minbmi %>
+  {key: "Adipositas Grad 2 <-> Adipositas Grad 3", color: "#FF0000", values: [
+    <% @weighings.each do |weighing| %>
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 40}, 
+      <% end %>
+    ]},  
+  <% end %>
+
   <% unless @target.nil? %>          
-    {key: "Wunschgewicht", color: "#afa", size: 1, values: [{x: <%= @weighings.first.date.to_time.to_i * 1000 %>, y: <%= @target %>}, 
-                                                            {x: <%= @weighings.last.date.to_time.to_i * 1000 %>, y: <%= @target %>16}]},  
+    {key: "Wunschgewicht", color: "#C33", size: 1, values: [
+    <% @weighings.each do |weighing| %>
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= @target %>}, 
+      <% end %>
+    ]},  
   <% end %>                                                          
   ];   
 };

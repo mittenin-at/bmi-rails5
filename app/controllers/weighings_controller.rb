@@ -53,10 +53,16 @@ class WeighingsController < ApplicationController
       flash[:notice] = "Noch keine Wägung eingetragen!"
       redirect_to(:action => 'new')
     else
-      @height = User.find(session[:user_id]).height
+      @height = current_user.height
       unless current_user.target.nil?
-        @target = (current_user.target * 100 * 100 / @height / @height).round(2) 
+        @target = (current_user.target * 100 * 100 / @height / @height).round(2)
+        @minbmi = [( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ), @target].min - 0.5
+        @maxbmi = [( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ), @target].max + 0.5
+      else
+        @minbmi = ( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ) - 0.5
+        @maxbmi = ( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ) + 0.5
       end
+
      
     end
   end
@@ -74,9 +80,11 @@ class WeighingsController < ApplicationController
     else
       @height = User.find(session[:user_id]).height
       @height_competitor = User.find(params[:competitor][:id]).height 
-      unless current_user.target.nil?
-        @target = (current_user.target * 100 * 100 / @height / @height).round(2) 
-      end
+      @minbmi = [( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ),
+                 ( Weighing.minimum(:weight, :conditions => ['user_id = ?', params[:competitor][:id]]) * 100 * 100 / @height_competitor / @height_competitor )].min - 0.5
+
+      @maxbmi = [( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ),
+                 ( Weighing.maximum(:weight, :conditions => ['user_id = ?', params[:competitor][:id]]) * 100 * 100 / @height_competitor / @height_competitor )].max + 0.5
     end
   end
 end
