@@ -5,76 +5,71 @@
   <li class="active"><%= link_to t("compare"), select_competitor_weighings_path %></li>
   <li><%= link_to t("invite"), new_invitation_path %></li>
 <% end %>
-  <h2>Vergleich Ihres Body Mass Index mit dem von <%= @compared.first.user.email %></h2>
+
+<h2>Vergleich mit <%= @compared.first.user.email %></h2>
+
+<style>
+#chart svg { height: 600px;}
+</style>
+
+<div id="chart">
+  <svg></svg>
+</div>
 
 <script type="text/javascript" charset="utf-8">
-  jQuery(document).ready(function() {
-    Highcharts.setOptions({ lang: { months: ['Jänner', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-                               		  weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnertag', 'Freitag', 'Samstag'] } });
-    chart= new Highcharts.Chart({
-      chart: { renderTo: 'diagram', defaultSeriesType: 'spline', zoomType: 'x' },
-      title: { text: 'BMI' },
-      xAxis: { type: 'datetime' },
-      yAxis: { title: { text: 'BMI' },
-         min: <%= @minbmi %>,
-         max: <%= @maxbmi %>,
-         minorGridLineWidth: 0,
-         gridLineWidth: 0,
-         alternateGridColor: null,
-         plotBands: [{ from: 15, to: 16, color: 'rgba(0, 100, 255, 0.4)',
-                       label: { text: 'starkes Untergewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
-                     { from: 16, to: 17, color: 'rgba(0, 150, 255, 0.4)',
-                       label: { text: 'mäßiges Untergewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
-                     { from: 17, to: 18.5, color: 'rgba(0, 255, 255, 0.4)',
-                       label: { text: 'leichtes Untergewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
-                     { from: 18.5, to: 25, color: 'rgba(0, 255, 0, 0.4)',
-                       label: { text: 'Normalgewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
-                     { from: 25, to: 30, color: 'rgba(255, 255, 0, 0.4)',
-                       label: { text: 'Übergewicht', style: { color: Highcharts.theme.textColor || '#606060' }}},
-                     { from: 30, to: 35, color: 'rgba(255, 140, 100, 0.4)',
-                       label: { text: 'Adipositas Grad I', style: { color: Highcharts.theme.textColor || '#606060' }}},
-                     { from: 35, to: 40, color: 'rgba(255, 0, 0, 0.4)',
-                       label: { text: 'Adipositas Grad II', style: { color: Highcharts.theme.textColor || '#606060' }}},
-                     { from: 40, to: 45, color: 'rgba(100, 0, 0, 0.4)',
-                       label: { text: 'Adipositas Grad III', style: { color: Highcharts.theme.textColor || '#606060' }}}
-                     ]},
-      tooltip: { formatter: function() { return ''+ Highcharts.dateFormat('%e. %B %Y', this.x) +': '+ this.point.weight +" kg"; } },
-      plotOptions: {
-         spline: { lineWidth: 1,
-            states: { lineWidth: 3 },
-            marker: { enabled: true, symbol: 'circle', radius: 3, 
-               states: { hover: { enabled: true, symbol: 'circle', radius: 5, lineWidth: 1 }}
-            },
-         }
-      },
-      series: [{
-         name: '<%= @weighings.first.user.email %>',
-        data: [
-          <% @weighings.each do |weighing| %> {
-            x: Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>),
-            y: <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>,
-            weight: <%= weighing.weight %>
-          },
-          <% end %>
-        ]
-      },
-      {
-         name: '<%= @compared.first.user.email %>',
-        data: [
-          <% @compared.each do |weighing| %> {
-            x: Date.UTC(<%= weighing.date.year %>, <%= weighing.date.month-1 %>, <%= weighing.date.day %>),
-            y: <%= (weighing.weight * 100 * 100 / @height_competitor / @height_competitor).round(2) %>,
-            weight: <%= weighing.weight %>
-          },
-          <% end %>
-         ]
-      }],
-      navigation: { menuItemStyle: { fontSize: '10px' } }
-   });
+ nv.addGraph(function() {
+    var chart = nv.models.lineWithFocusChart();
+  
+    chart.xAxis
+      .tickFormat(function(d) {
+      return d3.time.format('%d.%m.%Y')(new Date(d))
+    });
+
+    chart.x2Axis
+      .tickFormat(function(d) {
+      return d3.time.format('%d.%m.%Y')(new Date(d))
+    });      
+  
+    chart.yAxis
+        .tickFormat(d3.format(',.i'));
+
+   d3.select('#chart svg')
+       .datum(plotData())
+       .transition().duration(500)
+       .call(chart);
+  
+   nv.utils.windowResize(chart.update);
+
+   return chart;
 });
+ 
+function plotData() {
+  return [{ 
+    key: '<%= @weighings.first.user.email %>',
+    color: '#FF6B6B',
+    values: [
+      <% @weighings.each do |weighing| %> 
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>, weight: <%= weighing.weight %>}, 
+      <% end %>      
+      ]
+  },
+  { 
+    key: '<%= @compared.first.user.email %>',
+    color: '#4ECDC4',
+    values: [
+      <% @compared.each do |weighing| %> 
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= (weighing.weight * 100 * 100 / @height_competitor / @height_competitor).round(2) %>, weight: <%= weighing.weight %>}, 
+      <% end %>      
+      ]
+  },
+  {key: "Normalgewicht <-> Übergewicht", color: "#5562ff", values: [{x: <%= @weighings.first.date.to_time.to_i * 1000 %>, y: 25}, 
+                                                            {x: <%= @weighings.last.date.to_time.to_i * 1000 %>, y: 25}]},  
+  {key: "Übergewicht <-> Adipositas", color: "#C44D58", values: [{x: <%= @weighings.first.date.to_time.to_i * 1000 %>, y: 30}, 
+                                                            {x: <%= @weighings.last.date.to_time.to_i * 1000 %>, y: 30}]},  
+  <% unless @target.nil? %>          
+    {key: "Wunschgewicht", color: "#C7F464", values: [{x: <%= @weighings.first.date.to_time.to_i * 1000 %>, y: <%= @target %>}, 
+                                                            {x: <%= @weighings.last.date.to_time.to_i * 1000 %>, y: <%= @target %>}]},  
+  <% end %>                                                          
+  ];   
+};
 </script>
-<span id="diagram" class="highcharts-container" style="display:inline; margin:10px; height:400px"></span>
-        </p>
-    </div>
-  </div>
-</div>

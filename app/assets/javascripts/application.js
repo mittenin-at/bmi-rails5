@@ -16,3 +16,6 @@
 //= require twitter/bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require nvd3/lib/d3.v2
+//= require nvd3/lib/fisheye
+//= require nvd3/lib/nv.d3
