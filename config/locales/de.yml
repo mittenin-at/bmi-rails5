@@ -1,29 +1,35 @@
 de:
-  save: 'Speichern'
-  cancel: 'Abbrechen'
-  list: 'Liste'
-  edit: 'Bearbeiten'
-  new: 'Neuer Eintrag'
-  show: 'Anzeigen'
-  delete: 'Löschen'
-  confirm: 'Sind Sie sicher?'
-  created_at: 'Erzeugt'
-  all: 'alle'
-  diagram: 'Diagramm'
-  public: 'öffentlich'
-  height: 'Größe (kg)'
-  login: 'Anmelden'
-  authentication: 'Anmeldung'
-  submit: 'Absenden'
-  compare: 'Vergleichen'
-  logout: "Logout"
-  register: "Registrieren"
+  all: alle
+  authentication: Anmeldung
+  cancel: Abbrechen
+  compare: Vergleichen
+  confirm: Sind Sie sicher?
+  created_at: Erzeugt
+  delete: Löschen
+  diagram: Diagramm
+  edit: Bearbeiten
+  edit_lc: bearbeiten
+  error: Fehler
+  height: Größe (kg)
+  helpers:
+    error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
+  invite: Freunde einladen
+  list: Liste
+  login: Anmelden
+  logout: Logout
+  new: Neuer Eintrag
+  public: öffentlich
+  register: Registrieren
+  save: Speichern
+  show: Anzeigen
+  show_lc: anzeigen
+  submit: Absenden
 
   time:
     formats:
-      default: "%H:%M:%S Uhr"
-      short: "%H:%M"
-      long: "%H:%M:%S Uhr"
+      default: "%d.%m.%Y %H:%M"
+      short: "%d.%m.%Y %H:%M"
+      long: "%d.%m.%Y %H:%M Uhr"
       long_all: "%e. %B %Y %H:%M:%S Uhr"
       time: "%H:%M:%S"
     am: "vormittags"
@@ -188,7 +194,6 @@ de:
         user: 'Benutzer'
         weight: 'Gewicht (kg)'
 
-
       messages:
         inclusion: "ist kein gültiger Wert"
         exclusion: "ist nicht verfügbar"
@@ -211,3 +216,10 @@ de:
         even: "muss gerade sein"
         record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: {{errors}}"
 
+  views:
+    pagination:
+      first: " &laquo; zum Anfang "
+      last: " zum Ende &raquo; "
+      previous: " &lsaquo; zurück "
+      next: " vor &rsaquo; "
+      truncate: "..."

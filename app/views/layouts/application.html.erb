@@ -7,7 +7,6 @@
   <%= stylesheet_link_tag "application" , :media => "all" %>
   <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-  <link href='http://antiyawn.com/uploads/Humor-Sans.ttf' rel='stylesheet' type='text/css'>
   <%= favicon_link_tag '/assets/favicon.ico', :rel => 'shortcut icon' %>
   <%= javascript_include_tag "application"%>
   <%= csrf_meta_tag %>  
@@ -27,9 +26,9 @@
             <% if current_user %>
               <ul class="nav">
                 <li><%= link_to "Wägungen", weighings_path %></li>
+                <li><%= link_to "mein Profil", user_path(current_user) %></li>
               </ul>
-              <ul class="nav pull-right">
-                <li><%= link_to "Profil", user_path(current_user) %></li>
+              <ul class="nav pull-right">                
                 <li><%= link_to('Abmelden', authentication_logout_path) %></li>
               </ul>
             <% end %> 

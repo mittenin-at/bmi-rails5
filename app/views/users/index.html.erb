@@ -1,45 +1,37 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
-    </ul>
-  </div>
-  <div class="content">
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> <%= User.human_name %></h2>
-    <div class="inner">
-      <table class="table">
-        <tr>
-          <th><%= User.human_attribute_name('email') %></th>
-          <th><%= t("web-app-theme.public")  %></th>
-          <th><%= t("web-app-theme.height")  %></th>
-          <th><%= User.human_attribute_name('admin') %></th>
-          <th><%= t("web-app-theme.created_at")  %></th>
-          <th class="last">&nbsp;</th>
-        </tr>
-        <% @users.each do |user| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td><%= link_to user.email, user_path(user) %></td>
-          <td><%= user.public? ? raw("&#10003;") : "X" %></td>
-          <td><%= user.height %></td>
-          <td><%= user.admin? ? raw("&#10003;") : "X" %></td>
-          <td><%= l(user.created_at, :format => :long_all) %></td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show")}", user_path(user) %> |
-            <%= link_to "#{t("web-app-theme.edit")}", edit_user_path(user) %> |
-            <%= link_to "#{t("web-app-theme.delete")}", user_path(user), :method => :delete, :confirm => "#{t("web-app-theme.confirm")}" %>
-          </td>
-        </tr>
-        <% end -%>
-      </table>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
+<% content_for :sidebar do %>
+  <li class="active"><%= link_to t("list"), users_path  %></li>
+  <li><%= link_to t("new"), new_user_path %></li>
+  <li><%= link_to t("invite"), new_invitation_path %></li>   
+<% end %>
 
-      </div>
-    </div>
-  </div>
-</div>
+<h2 class="title"><%= t("all", :default => "All")  %> <%= User.model_name.human %></h2>
 
-<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name('email') %></th>
+      <th><%= t("public")  %></th>
+      <th><%= t("height")  %></th>
+      <th><%= User.human_attribute_name('admin') %></th>
+      <th><%= t("created_at")  %></th>
+      <th class="last">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| -%>
+      <tr>
+        <td><%= link_to user.email, user_path(user) %></td>
+        <td><%= user.public? ? raw("&#10003;") : "X" %></td>
+        <td><%= user.height %></td>
+        <td><%= user.admin? ? raw("&#10003;") : "X" %></td>
+        <td><%= l(user.created_at, :format => :long_all) %></td>
+        <td>
+          <%= link_to t("show"), user_path(user), class: "btn btn-primary" %>
+          <%= link_to t("edit"), edit_user_path(user), class: "btn btn-warning" %> 
+          <%= link_to t("delete"), user_path(user), :method => :delete, :confirm => "#{t("confirm")}", class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+<%= paginate @users %>

@@ -1,49 +1,36 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <% if admin? %>
-          <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
-          <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
-          <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path %></li>
-      <% else %>
-          <li class="active first"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="content">
-    <div class="inner">
+<% content_for :sidebar do %>
+  <% if admin? %>
+    <li><%= link_to t("list"), users_path  %></li>
+    <li><%= link_to t("new"), new_user_path %></li>
+  <% end %>
+  <li class="active"><%= link_to t("show"), user_path %></li>
+  <li><%= link_to t("invite"), new_invitation_path %></li>      
+<% end %>
 
-        <p>
-          <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email")) %>:</b>
-          <%= @user.email %>
-        </p>
-        <p>
-          <b><%= t("activerecord.attributes.user.height", :default => t("activerecord.labels.height")) %>:</b>
-          <%= @user.height %>
-        </p>
-        <p>
-          <b><%= t("activerecord.attributes.user.target", :default => t("activerecord.labels.target")) %>:</b>
-          <%= @user.target %>
-        </p>
-        <p>
-          <b><%= t("activerecord.attributes.user.public", :default => t("activerecord.labels.public")) %>:</b>
-          <%= @user.public? ? raw("&#10003;") : "X" %>
-        </p>
-        <% if admin? %>        
-        <p>
-          <b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin")) %>:</b>
-          <%= @user.admin? ? raw("&#10003;") : "X" %>
-        </p>
-        <% end %>
-      <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit")}") + " " + t("web-app-theme.edit"),
-            edit_user_path(@user), :class => "button" %>
-        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete")}") + " " + t("web-app-theme.delete"),
-            user_path(@user), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm")}" %>
-      </div>
-    </div>
-  </div>
-</div>
+<h1><%= User.model_name.human %> <%= t("show_lc") %></h1>
 
-<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
+<p>
+  <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email")) %>:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b><%= t("activerecord.attributes.user.height", :default => t("activerecord.labels.height")) %>:</b>
+  <%= @user.height %>
+</p>
+<p>
+  <b><%= t("activerecord.attributes.user.target", :default => t("activerecord.labels.target")) %>:</b>
+  <%= @user.target %>
+</p>
+<p>
+  <b><%= t("activerecord.attributes.user.public", :default => t("activerecord.labels.public")) %>:</b>
+  <%= @user.public? ? raw("&#10003;") : "X" %>
+</p>
+<% if admin? %>        
+<p>
+  <b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin")) %>:</b>
+  <%= @user.admin? ? raw("&#10003;") : "X" %>
+</p>
+<% end %>
 
+<%= link_to t("edit"), edit_user_path(@user), :class => "btn btn-primary" %>
+<%= link_to t("delete"), user_path(@user), :method => "delete", :class => "btn btn-danger", :confirm => "#{t("confirm")}" %>

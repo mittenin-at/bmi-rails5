@@ -1,21 +1,14 @@
+<% content_for :sidebar do %>
+  <li><%= link_to t("list"), users_path  %></li>
+  <li class="active"><%= link_to t("new"), new_user_path %></li>
+  <li><%= link_to t("invite"), new_invitation_path %></li>  
+<% end %>
 
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
-    </ul>
-  </div>
-  <div class="content">
-    <h2 class="title"><%= t("web-app-theme.new", :default => "New")%> <%= t("activerecord.models.user", :default => t("activerecord.labels.user", :default => "Users")) %></h2>
-    <div class="inner">
-      <%= form_for :user, :url => users_path, :html => { :class => :form } do |f| -%>
-        <%= f.hidden_field :invitation_token %>
-        <%= render :partial => "form", :locals => {:f => f} %>
-      <% end -%>
-    </div>
-  </div>
-</div>
+<h2><%= t("new", :default => "New")%> <%= t("activerecord.models.user") %></h2>
 
-<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
+<%= bootstrap_error(@user, User ) %>
 
+<%= form_for :user, :url => users_path, :html => { :class => :form } do |f| -%>
+  <%= f.hidden_field :invitation_token %>
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>

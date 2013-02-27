@@ -1,23 +1,20 @@
-  <fieldset>
-    <%= f.label :date, Weighing.human_attribute_name('date') %>
-    <%= f.date_select :date, {},  html_options = { class: "input-small" } %>
-    <span class="help-block">Das Datum der Wägung. Pro Tag kann nur eine Wägung eingegeben werden.</span>
+<fieldset>
+<%= f.label :date, Weighing.human_attribute_name('date') %>
+<%= f.date_select :date, {},  html_options = { class: "input-small" } %>
+<span class="help-block">Das Datum der Wägung. Pro Tag kann nur eine Wägung eingegeben werden.</span>
 
-    <%= f.label :weight, Weighing.human_attribute_name('weight') %>
-    <%= f.text_field :weight, :class => 'number_field', :value => @last_weight %> kg
-    <span class="help-block">Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 78.3</span>
+<%= f.label :weight, Weighing.human_attribute_name('weight') %>
+<%= f.text_field :weight, :class => 'number_field', :value => @last_weight %> kg
+<span class="help-block">Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 78.3</span>
 
-    <%= f.label :abdominal_girth, Weighing.human_attribute_name('abdominal_girth') %>
-    <%= f.text_field :abdominal_girth, :class => 'number_field', :value => @last_abdominal_gith %> cm
-    <span class="help-block">Bauchumfang in ganzen Zentimetern.</span>
+<%= f.label :abdominal_girth, Weighing.human_attribute_name('abdominal_girth') %>
+<%= f.text_field :abdominal_girth, :class => 'number_field', :value => @last_abdominal_gith %> cm
+<span class="help-block">Bauchumfang in ganzen Zentimetern.</span>
 
-    <%= f.label :adipose, Weighing.human_attribute_name('adipose') %>
-    <%= f.text_field :adipose, :class => 'number_field', :value => @last_adipose %> %
-    <span class="help-block">Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 32.1</span>
-  </fieldset>
+<%= f.label :adipose, Weighing.human_attribute_name('adipose') %>
+<%= f.text_field :adipose, :class => 'number_field', :value => @last_adipose %> %
+<span class="help-block">Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 32.1</span>
+</fieldset>
 
-  <% f.submit t("save") %>
-  
-	<%= link_to t("cancel"), weighings_path, :class => "btn btn-warning" %>
-</div>
-
+<%= f.submit t("save"), class: "btn btn-primary" %>
+<%= link_to t("cancel"), weighings_path, :class => "btn btn-warning" %>

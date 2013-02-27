@@ -4,6 +4,8 @@ gem 'rails', '3.2.12'
 gem 'mysql2'
 gem 'i18n'
 
+gem 'kaminari'
+
 gem 'jquery-rails'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git' # Twitter Bootstrap Framework

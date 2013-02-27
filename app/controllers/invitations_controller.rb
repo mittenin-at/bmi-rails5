@@ -37,7 +37,7 @@ class InvitationsController < ApplicationController
   end
 
   def index
-    @invitations = Invitation.all
+    @invitations = Invitation.page(params[:page]).per(15).order("created_at DESC")
   end
 
   def destroy

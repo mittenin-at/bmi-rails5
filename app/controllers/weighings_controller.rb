@@ -1,19 +1,13 @@
 # encoding: utf-8
 class WeighingsController < ApplicationController
-  # GET /weighings
-  # GET /weighings.xml
   def index
-    @weighings = Weighing.order("date desc").find_all_by_user_id(session[:user_id])
+    @weighings = Weighing.page(params[:page]).per(15).order("date desc").where(user_id: session[:user_id])
   end
 
-  # GET /weighings/1
-  # GET /weighings/1.xml
   def show
     @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
   end
 
-  # GET /weighings/new
-  # GET /weighings/new.xml
   def new
     last_weighing = Weighing.find_all_by_user_id(session[:user_id]).last
     @last_weight = last_weighing.weight if last_weighing
@@ -22,13 +16,10 @@ class WeighingsController < ApplicationController
     @weighing = Weighing.new
   end
 
-  # GET /weighings/1/edit
   def edit
     @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
   end
 
-  # POST /weighings
-  # POST /weighings.xml
   def create
     @weighing = Weighing.new(params[:weighing])
     @weighing.user_id =  session[:user_id]
@@ -39,8 +30,6 @@ class WeighingsController < ApplicationController
     end
   end
 
-  # PUT /weighings/1
-  # PUT /weighings/1.xml
   def update
     @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
     @weighing.user_id =  session[:user_id]
@@ -52,8 +41,6 @@ class WeighingsController < ApplicationController
     end
   end
 
-  # DELETE /weighings/1
-  # DELETE /weighings/1.xml
   def destroy
     @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
     @weighing.destroy
@@ -99,6 +86,4 @@ class WeighingsController < ApplicationController
                  ( Weighing.maximum(:weight, :conditions => ['user_id = ?', params[:competitor][:id]]) * 100 * 100 / @height_competitor / @height_competitor )].max.to_i + 1
     end
   end
-
 end
-

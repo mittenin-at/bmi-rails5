@@ -63,7 +63,3 @@ class User < ActiveRecord::Base
     self.invitation_limit = 10
   end
 end
-
-
-
-

@@ -1,45 +1,37 @@
 <% content_for :sidebar do %>
-  <li class="first active"><%= link_to "#{t("list")}", weighings_path  %></li>
-  <li><%= link_to "#{t("new")}", new_weighing_path %></li>
-  <li><%= link_to "#{t("diagram")}", diagram_weighings_path %></li>
-  <li><%= link_to "#{t("compare")}", select_competitor_weighings_path %></li>
+  <li class="active"><%= link_to t("list"), weighings_path  %></li>
+  <li><%= link_to t("new"), new_weighing_path %></li>
+  <li><%= link_to t("diagram"), diagram_weighings_path %></li>
+  <li><%= link_to t("compare"), select_competitor_weighings_path %></li>
+  <li><%= link_to t("invite"), new_invitation_path %></li>
 <% end %>
     
 <h1><%= t("all")  %> <%= Weighing.model_name.human( :count => '2' ) %></h1>
-<div class="inner">
-  <table class="table">
-    <thead>
-      <tr>
-        <th><%= Weighing.human_attribute_name('weight')%></th>
-        <th><%= Weighing.human_attribute_name('abdominal_girth')  %></th>
-        <th><%= Weighing.human_attribute_name('adipose')  %></th>
-        <th><%= Weighing.human_attribute_name('date')  %></th>
-        <th class="last">&nbsp;</th>
-      </tr>
-    <thead>
-    <tbody>
-      <% @weighings.each do |weighing| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= link_to weighing.weight, weighing_path(weighing) %>
-          </td>
-          <td>
-            <%= weighing.abdominal_girth %>
-          </td>
-          <td>
-            <%= weighing.adipose %>
-          </td>
 
-          <td>
-            <%= l weighing.date %>
-          </td>
-          <td class="last">
-            <%= link_to t("show"), weighing_path(weighing), class: "btn btn-primary" %> 
-            <%= link_to t("edit"), edit_weighing_path(weighing), class: "btn btn-warning" %> 
-            <%= link_to t("delete"), weighing_path(weighing), :method => :delete, :confirm => t("confirm"), class: "btn btn-danger" %>
-          </td>
-        </tr>
-      <% end -%>
-    </tbody>
-  </table>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Weighing.human_attribute_name('weight')%></th>
+      <th><%= Weighing.human_attribute_name('abdominal_girth')  %></th>
+      <th><%= Weighing.human_attribute_name('adipose')  %></th>
+      <th><%= Weighing.human_attribute_name('date')  %></th>
+      <th class="last">&nbsp;</th>
+    </tr>
+  <thead>
+  <tbody>
+    <% @weighings.each do |weighing| -%>
+      <tr>
+        <td><%= link_to weighing.weight, weighing_path(weighing) %></td>
+        <td><%= weighing.abdominal_girth %></td>
+        <td><%= weighing.adipose %></td>
+        <td><%= l weighing.date %></td>
+        <td>
+          <%= link_to t("show"), weighing_path(weighing), class: "btn btn-primary" %> 
+          <%= link_to t("edit"), edit_weighing_path(weighing), class: "btn btn-warning" %> 
+          <%= link_to t("delete"), weighing_path(weighing), :method => :delete, :confirm => t("confirm"), class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+<%= paginate @weighings %>

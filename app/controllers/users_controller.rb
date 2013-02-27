@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.order("email").all
+    @users = User.page(params[:page]).per(15).order("email")
   end
 
   # GET /users/1
@@ -40,7 +40,6 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      debugger
       redirect_to(weighings_url, :notice => 'Ihr Account wurde erfolgreich angelegt.')
     else
       render :action => "new"

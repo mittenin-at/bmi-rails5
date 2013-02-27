@@ -3,9 +3,12 @@
   <li class="active"><%= link_to t("new"), new_weighing_path %></li>
   <li><%= link_to t("diagram"), diagram_weighings_path %></li>
   <li><%= link_to t("compare"), select_competitor_weighings_path %></li>
+  <li><%= link_to t("invite"), new_invitation_path %></li>
 <% end %>
 
 <h2><%= t("new")%> <%= Weighing.model_name.human %></h2>
+
+<%= bootstrap_error(@weighing, Weighing ) %>
 
 <%= form_for :weighing, :url => weighings_path, :html => { :class => :form } do |f| %>
   <%= render :partial => "form", :locals => {:f => f} %>

@@ -1,22 +1,19 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", weighings_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_weighing_path %></li>
-      <li><%= link_to "#{t("web-app-theme.diagram")}", diagram_weighings_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.compare")}", select_competitor_weighings_path %></li>
-    </ul>
+<% content_for :sidebar do %>
+  <li><%= link_to t("list"), weighings_path  %></li>
+  <li><%= link_to t("new"), new_weighing_path %></li>
+  <li><%= link_to t("diagram"), diagram_weighings_path %></li>
+  <li class="active"><%= link_to t("compare"), select_competitor_weighings_path %></li>
+  <li><%= link_to t("invite"), new_invitation_path %></li>
+<% end %>
+  
+<% if current_user.public? %>
+  <%= form_tag '/weighings/compare', :method => :post, :class => 'form' do %>
+    <p>Vergleichen mit <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), {:include_blank => false}, {class: "input-xlarge"}) %></p>
+    <%= button_tag t("compare"), class: "btn btn-info" %>       
+  <% end %>
+<% else %>
+  <div class="alert alert-error">
+    Sie können Ihren BMI nur mit anderen Personen vergleichen, wenn Sie Ihren eigenen in Ihrem Profil freigeben!
   </div>
-  <div class="content">
-    <div class="inner">
-      <%= form_tag '/weighings/compare', :method => :post, :class => 'form' do %>
-        <p>Vergleichen mit <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), :include_blank => false ) %></p>
-        <p><button class="button" type="submit">
-             <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.compare")}") %> <%= t("web-app-theme.compare") %>
-           </button></p>
-      <% end %>
-      <p>&nbsp;</p>
-    </div>
-  </div>
-</div>
-<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
+  <%= link_to "Profil bearbeiten", edit_user_path(current_user), class: "btn btn-warning" %>
+<% end %>
