@@ -1,37 +1,42 @@
 <div class="well">
-  <h1>BMI-Monitor</h1>
+  <h1 class="icon-stethoscope"> BMI Monitor</h1>
+  <p><%= raw(t :track) %></p>
+</div>
 
-  <p>Momentan sind wir in einer offenen &beta;-Phase. 
-     Wenn Sie Ihre Emailadresse hinterlassen, werden wir Sie benachrichtigen,
-     sobald wir weitere Benutzer aufnehmen.</p>
-  <%= form_for Invitation.new, :class => 'form' do |f| %>
-    <fieldset>
-      <label>Ihre Email-Adresse</label>
-      <%= f.text_field :recipient_email, :class => 'text_field' %>          
-    </fieldset>
-    <%= f.submit t("register"), class: "btn btn-primary" %>
-  <% end %>
+<div class="row-fluid">
+  <div class="span4">
+    <h2 class="icon-pencil"> <%= t :login %></h2>
+    <%= form_tag authentication_login_path, :method => :post, :class => 'form' do %>
+      <fieldset>
+        <%= label_tag :email, User.human_attribute_name('email')%>
+        <%= text_field_tag :email, params[:email], :class => 'text_field' %><br />
+        <%= label_tag :password, t("activerecord.attributes.user.password") %>
+        <%= password_field_tag :password, params[:password], :class => 'text_field' %>
+      </fieldset>
+      <%= button_tag t("login"), class: "btn btn-success" %>  
+    <% end -%>
+  </div>  
+  <div class="span4">
+    <h1 class="icon-check"> <%= t :register %> </h1>
+    <p><%= raw(t :beta) %></p>
+    <%= form_for Invitation.new, :class => 'form' do |f| %>
+      <fieldset>
+        <label><%= t "your_email" %></label>
+        <%= f.text_field :recipient_email, :class => 'text_field' %>          
+      </fieldset>
+      <%= f.submit t("register"), class: "btn btn-primary" %>
+    <% end %>
+  </div>  
+  <div class="span4">
+    <h1 class="icon-bullhorn"> <%= t :invite %> </h1>
+    <p><%= raw(t "invite_friends") %></p>
+    <%= form_for Invitation.new, :class => 'form' do |f| %>
+      <fieldset>
+        <label><%= t "email" %></label>
+        <%= f.text_field :recipient_email, :class => 'text_field' %>          
+      </fieldset>
+      <%= f.submit t("invite"), class: "btn btn-primary" %>
+    <% end %>
+  </div>    
+
 </div>  
-<blockquote>
-  <p>
-    Der Body-Mass-Index (BMI) ... ist eine Maßzahl für die Bewertung des Körpergewichts eines Menschen in Relation zu seiner
-    Körpergröße. Sie wurde 1870 von Adolphe Quetelet entwickelt.<br/>
-    Der BMI bezieht das Körpergewicht ... auf die Körperoberfläche, die näherungsweise aus dem
-    Quadrat der Körpergröße berechnet wird. Der BMI ist lediglich ein grober Richtwert, da er weder Statur und
-    Geschlecht noch die individuelle Zusammensetzung der Körpermasse aus Fett- und Muskelgewebe eines Menschen
-    berücksichtigt.
-  </p>
-<small>Quelle: Wikipedia: "Body-Mass-Index"</small>
-</blockquote>
-
-      
-<h2><%= t("authentication") %></h2>
-<%= form_tag '/authentication/login', :method => :post, :class => 'form' do %>
-  <fieldset>
-    <%= label_tag :email, User.human_attribute_name('email')%>
-    <%= text_field_tag :email, params[:email], :class => 'text_field' %><br />
-    <%= label_tag :password, t("activerecord.attributes.user.password") %>
-    <%= password_field_tag :password, params[:password], :class => 'text_field' %>
-  </fieldset>
-  <%= button_tag t("login"), class: "btn btn-success" %>  
-<% end -%>

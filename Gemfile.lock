@@ -139,7 +139,6 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
-  i18n
   jquery-datatables-rails
   jquery-rails
   kaminari

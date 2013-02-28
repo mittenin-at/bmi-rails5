@@ -3,64 +3,68 @@
   <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="shortcut icon" href="/assets/favicon.ico" />
-  <title>BMI Monitor</title>
-  <%= stylesheet_link_tag "application" , :media => "all" %>
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-  <%= favicon_link_tag '/assets/favicon.ico', :rel => 'shortcut icon' %>
-  <%= javascript_include_tag "application"%>
-  <%= csrf_meta_tag %>  
-</head>
-<body>
+    <title>BMI Monitor</title>
+    <%= stylesheet_link_tag "application" , :media => "all" %>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <%= favicon_link_tag '/assets/favicon.ico', :rel => 'shortcut icon' %>
+    <%= javascript_include_tag "application"%>
+    <%= csrf_meta_tag %>  
+  </head>
 
-<div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">BMI Monitor</a>
-          <div class="container-fluid nav-collapse">
-            <% if current_user %>
+  <body>
+    <div id="wrap">
+      <div class="navbar navbar-fluid-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">BMI Monitor</a>
+            <div class="container-fluid nav-collapse">
               <ul class="nav">
-                <li><%= link_to "Wägungen", weighings_path %></li>
-                <li><%= link_to "mein Profil", user_path(current_user) %></li>
+                <li><%= link_to "Wägungen", weighings_path if current_user %></li>
+                <li><%= link_to "mein Profil", user_path(current_user) if current_user %></li>
               </ul>
-              <ul class="nav pull-right">                
-                <li><%= link_to('Abmelden', authentication_logout_path) %></li>
+              <ul class="nav pull-right"> 
+                <li><%= link_to "DE", request.path + "?locale=de" %></li>
+                <li><%= link_to "EN", request.path + "?locale=en" %></li>               
+                <li><%= link_to('Abmelden', authentication_logout_path) if current_user %></li>
               </ul>
-            <% end %> 
-          </div><!--/.nav-collapse -->
+            </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span2">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Navigation</li>
-              <%= yield :sidebar %>
-              <li class="nav-header">Links</li>
-              <li><a href="http://de.wikipedia.org/wiki/Body-Mass-Index" target="new">BMI (Wikipedia)</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span10">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
-      <footer>
-        <p>BMI@mittenin.at
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span2">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                <li class="nav-header">Navigation</li>
+                <%= yield :sidebar %>
+                <li class="nav-header">Links</li>
+                <li><a href="http://de.wikipedia.org/wiki/Body-Mass-Index" target="new">BMI (Wikipedia)</a></li>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
+          <div class="span10">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+        </div><!--/row-->
+      </div> <!-- /container -->
+      <div id="push"></div>
+    </div> <!-- /wrap -->
+    <div id="footer">
+      <div class="container">
+        <p><br/>BMI@mittenin.at
           <span class="pull-right">&copy <a href="http://www.informatom.com">Informatom EDV Dienstleistungen e.U.</a> <%= Time.now.year %></div>
         </p>
-      </footer>
-    </div> <!-- /container -->
+      </div>      
+    </div>
     <%= yield :javascript %>
   </body>
 </html>

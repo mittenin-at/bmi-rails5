@@ -6,7 +6,7 @@
   <li><%= link_to t("invite"), new_invitation_path %></li>
 <% end %>
     
-<h1><%= t("all")  %> <%= Weighing.model_name.human( :count => '2' ) %></h1>
+<h1><%= t("all")  %> <%= Weighing.model_name.human.pluralize %></h1>
 
 <table class="table table-striped">
   <thead>

@@ -6,8 +6,6 @@
   <li><%= link_to t("invite"), new_invitation_path %></li>
 <% end %>
 
-<h2>Diagramm des zeitlichen Verlaufs Ihres Body Mass Index</h2>
-
 <style>
 #chart svg { height: 400px;}
 </style>
@@ -27,7 +25,7 @@
 
     chart.x2Axis
       .tickFormat(function(d) {
-      return d3.time.format('%d.%m.%Y')(new Date(d))
+      return d3.time.format('%d.%m.%Y')(new Date(d))  
     });    
     
     chart.forceY([<%= @minbmi %>, <%= @maxbmi %>]);
@@ -39,7 +37,6 @@
        .datum(plotData())
        .transition().duration(500)
        .call(chart);
-
   
    nv.utils.windowResize(chart.update);   
 

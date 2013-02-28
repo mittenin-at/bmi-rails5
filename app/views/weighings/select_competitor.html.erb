@@ -8,12 +8,12 @@
   
 <% if current_user.public? %>
   <%= form_tag '/weighings/compare', :method => :post, :class => 'form' do %>
-    <p>Vergleichen mit <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), {:include_blank => false}, {class: "input-xlarge"}) %></p>
+    <p><%= t "compare_with" %> &nbsp; <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), {:include_blank => false}, {class: "input-xlarge"}) %></p>
     <%= button_tag t("compare"), class: "btn btn-info" %>       
   <% end %>
 <% else %>
   <div class="alert alert-error">
-    Sie können Ihren BMI nur mit anderen Personen vergleichen, wenn Sie Ihren eigenen in Ihrem Profil freigeben!
+    <%= t "private_profile" %>
   </div>
-  <%= link_to "Profil bearbeiten", edit_user_path(current_user), class: "btn btn-warning" %>
+  <%= link_to t("edit_my_profile"), edit_user_path(current_user), class: "btn btn-warning" %>
 <% end %>

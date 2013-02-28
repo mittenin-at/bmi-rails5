@@ -1,29 +1,46 @@
 de:
   all: alle
   authentication: Anmeldung
+  back: Zurück
+  bmi: "Der Body-Mass-Index (BMI) ... ist eine Maßzahl für die Bewertung des Körpergewichts eines Menschen in Relation zu seiner Körpergröße. Sie wurde 1870 von Adolphe Quetelet entwickelt.<br/> Der BMI bezieht das Körpergewicht ... auf die Körperoberfläche, die näherungsweise aus dem Quadrat der Körpergröße berechnet wird. Der BMI ist lediglich ein grober Richtwert, da er weder Statur und Geschlecht noch die individuelle Zusammensetzung der Körpermasse aus Fett- und Muskelgewebe eines Menschen berücksichtigt."
+  beta: "Momentan sind wir in einer offenen &beta;-Phase.<br/> Wenn Sie Ihre Emailadresse hinterlassen, werden wir Sie benachrichtigen, sobald wir weitere Benutzer aufnehmen."
   cancel: Abbrechen
   compare: Vergleichen
+  compare_with: Vergleichen mit
   confirm: Sind Sie sicher?
   created_at: Erzeugt
   delete: Löschen
   diagram: Diagramm
   edit: Bearbeiten
   edit_lc: bearbeiten
+  email: E-Mail Adresse
   error: Fehler
   height: Größe (kg)
   helpers:
+    adipose: 'Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 32.1'
+    date: 'Das Datum der Wägung. Pro Tag kann nur eine Wägung eingegeben werden.'
+    girth: 'Bauchumfang in ganzen Zentimetern.'
     error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
+    weight: "Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 78.3"
   invite: Freunde einladen
   list: Liste
   login: Anmelden
   logout: Logout
+  edit_my_profile: Mein Profil bearbeiten
   new: Neuer Eintrag
+  private_profile: "Sie können Ihren BMI nur mit anderen Personen vergleichen, wenn Sie Ihren eigenen in Ihrem Profil freigeben!"
+  profile: Profil
   public: öffentlich
+  invite: Einladen
+  invite_friends: Laden Sie Ihre Familie und Ihre Freunde ein! Es macht gemeinsam einfach mehr Spaß und gibt den extra-Kick Motivation!
   register: Registrieren
   save: Speichern
   show: Anzeigen
   show_lc: anzeigen
+  source: "Quelle: Wikipedia: 'Body-Mass-Index'"
   submit: Absenden
+  track: "Sie wollen Ihr Gewicht halten oder sogar abnehmen?<br/>Beobachten Sie Ihren Body Mass Index und seien Sie konsequenter, indem Sie Ihren Status veröffentlichen und mit dem von Freunden und Bekannten vergleichen!"
+  your_email: Ihre Email-Adresse
 
   time:
     formats:
@@ -129,7 +146,6 @@ de:
           mb: "MB"
           gb: "GB"
           tb: "TB"
-
   support:
     array:
       words_connector: ", "
@@ -137,7 +153,6 @@ de:
       last_word_connector: " und "
     select:
       prompt: "Bitte wählen:"
-
   activemodel:
     errors:
       template:
@@ -145,7 +160,6 @@ de:
           one:    "Konnte {{model}} nicht speichern: ein Fehler."
           other:  "Konnte {{model}} nicht speichern: {{count}} Fehler."
         body: "Bitte überprüfen Sie die folgenden Felder:"
-
   activerecord:
     errors:
       template:

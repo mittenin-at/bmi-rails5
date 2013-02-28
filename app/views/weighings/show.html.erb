@@ -25,5 +25,6 @@
   <%= @weighing.adipose %>
 </p>
 
+<%= link_to t("back"), weighings_path, :class => "btn btn-primary" %>
 <%= link_to t("edit"), edit_weighing_path(@weighing), :class => "btn btn-warning" %>
 <%= link_to t("delete"), weighing_path(@weighing), :method => "delete", :class => "btn btn-danger", :confirm => t("confirm") %>
