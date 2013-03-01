@@ -15,7 +15,7 @@ Installation instructions to be added ...
 
 The libararies used can be found in the Gemfile, but I want to thank the current project leads for maintaining the explicitely:
 
-* [rails](https://github.com/rails/rails) , thanks to [all Rails developers](https://github.com/rails)
+* [rails](https://github.com/rails/rails), thanks to [all Rails developers](https://github.com/rails)
 * [mysql2](https://github.com/brianmario/mysql2), thanks to [Brtian Lopez](https://github.com/brianmario)
 * [kaminari](https://github.com/amatsuda/kaminari), thanks to [Akira Matsuda](https://github.com/amatsuda)
 * [nokogiri](https://github.com/sparklemotion/nokogiri), thanks to [Sparkle Motion](https://github.com/sparklemotion)
