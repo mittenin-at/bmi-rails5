@@ -1,14 +1,11 @@
-This file is currently work in progress...
-
 ## Welcome to BMI
 
 BMI is a body mass index tracker application written in Ruby on Rails.
 It is licenced under the GPLv3. See licence File provided in the same directory for details.
 
-
 ## Prerequisites
 
-* A working SMTP server
+* A working Ruby On Rails environment and access to a running SMTP server
 
 ## Getting Started
 
