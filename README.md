@@ -13,7 +13,7 @@ It is licenced under the GPLv3. See licence File provided in the same directory 
 ## Getting Started
 
 1. Copy `config/database.yml.orig`  to `config/database.yml` and modify it according to your settings.
-2. The obligatory `bundle install` and `rake db:migrate`.
+2. `bundle install` and `rake db:migrate` as usual.
 2. Modify `config/environment.rb` and set the name of you SMTP-Server.
 3. Start the application and register your admin's email address.
 4. An email will be sent to this address, click on link and register yourself.
@@ -22,7 +22,7 @@ It is licenced under the GPLv3. See licence File provided in the same directory 
 
 ## Libraries used 
 
-The gems used can be found in the Gemfile, but I want to thank the current project leads for maintaining the explicitely:
+The gems used can be found in the Gemfile, but I want to thank the current project leads for maintaining them explicitely:
 * [rails](https://github.com/rails/rails), thanks to [all Rails developers](https://github.com/rails)
 * [mysql2](https://github.com/brianmario/mysql2), thanks to [Brtian Lopez](https://github.com/brianmario)
 * [kaminari](https://github.com/amatsuda/kaminari), thanks to [Akira Matsuda](https://github.com/amatsuda)
