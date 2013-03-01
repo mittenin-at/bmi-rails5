@@ -14,7 +14,10 @@ It is licenced under the GPLv3. See licence File provided in the same directory 
 
 1. Copy `config/database.yml.orig`  to `config/database.yml` and modify it according to your settings.
 2. Modify `config/environment.rb` and set the name of you SMTP-Server.
-3. The first user created will have admin privileges!
+3. Start the application and register your admin's email address.
+4. An email will be sent to this address, click on link and register yourself.
+5. The first (and only the first) user created will have admin privileges automatically.
+6. Have fun!
 
 ## Libraries used 
 
