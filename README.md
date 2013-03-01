@@ -2,7 +2,7 @@ This file is currently work in progress...
 
 ## Welcome to BMI
 
-BMI is a body mass tracker application written in Ruby on Rails.
+BMI is a body mass index tracker application written in Ruby on Rails.
 It is licenced under the GPLv3. See licence File provided in the same directory for details.
 
 
@@ -34,3 +34,5 @@ The libararies used can be found in the Gemfile, but I want to thank the current
 * [jquery-datatables-rails](https://github.com/rweng/jquery-datatables-rails), thanks to [Robin Wenglewski](https://github.com/rweng)
 * [therubyracer](https://github.com/cowboyd/therubyracer), thanks to [Charles Lowell](https://github.com/cowboyd)
 * [debugger](https://github.com/mark-moseley/ruby-debug), thanks to [Mark Moseley](https://github.com/mark-moseley)
+
+* [nvd3](http://nvd3.org/), thanks to [Novus](https://github.com/novus) for the pretty Javascript graphing library
