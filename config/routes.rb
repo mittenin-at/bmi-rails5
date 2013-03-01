@@ -23,7 +23,6 @@ Bmi::Application.routes.draw do
 
   root :to => "authentication", :action => "login"
 
-# damit wird /login umgeleitet:
   match '/login', :controller  => "authentication", :action => "login"
   match '/logout', :controller => "authentication", :action => "logout"
 end

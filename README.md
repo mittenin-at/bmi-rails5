@@ -6,10 +6,15 @@ BMI is a body mass tracker application written in Ruby on Rails.
 It is licenced under the GPLv3. See licence File provided in the same directory for details.
 
 
+## Prerequisites
+
+* A working SMTP server
+
 ## Getting Started
 
-Installation instructions to be added ...
-
+1. Copy `config/database.yml.orig`  to `config/database.yml` and modify it according to your settings.
+2. Modify `config/environment.rb` and set the name of you SMTP-Server.
+3. The first user created will have admin privileges!
 
 ## Libraries used 
 

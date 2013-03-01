@@ -38,6 +38,9 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
+    if User.all.count == 0
+      @user.admin = true
+    end
     if @user.save
       session[:user_id] = @user.id
       redirect_to(weighings_url, :notice => 'Ihr Account wurde erfolgreich angelegt.')
