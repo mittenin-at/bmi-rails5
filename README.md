@@ -22,8 +22,7 @@ It is licenced under the GPLv3. See licence File provided in the same directory 
 
 ## Libraries used 
 
-The libararies used can be found in the Gemfile, but I want to thank the current project leads for maintaining the explicitely:
-
+The gems used can be found in the Gemfile, but I want to thank the current project leads for maintaining the explicitely:
 * [rails](https://github.com/rails/rails), thanks to [all Rails developers](https://github.com/rails)
 * [mysql2](https://github.com/brianmario/mysql2), thanks to [Brtian Lopez](https://github.com/brianmario)
 * [kaminari](https://github.com/amatsuda/kaminari), thanks to [Akira Matsuda](https://github.com/amatsuda)
@@ -35,4 +34,4 @@ The libararies used can be found in the Gemfile, but I want to thank the current
 * [therubyracer](https://github.com/cowboyd/therubyracer), thanks to [Charles Lowell](https://github.com/cowboyd)
 * [debugger](https://github.com/mark-moseley/ruby-debug), thanks to [Mark Moseley](https://github.com/mark-moseley)
 
-* [nvd3](http://nvd3.org/), thanks to [Novus](https://github.com/novus) for the pretty Javascript graphing library
+* [nvd3](http://nvd3.org/), thanks to [Novus](https://github.com/novus) for the pretty Javascript graphing library based on [D3.js](http://d3js.org/)
