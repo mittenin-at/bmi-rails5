@@ -1,13 +1,5 @@
-<% content_for :sidebar do %>
-  <li><%= link_to t("list"), weighings_path  %></li>
-  <li><%= link_to t("new"), new_weighing_path %></li>
-  <li class="active"><%= link_to t("diagram"), diagram_weighings_path %></li>
-  <li><%= link_to t("compare"), select_competitor_weighings_path %></li>
-  <li><%= link_to t("invite"), new_invitation_path %></li>
-<% end %>
-
 <div id="chart">
-  <svg style="height: 80%;"></svg>
+  <svg style="height: 80%; min-height: 600px;"></svg>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -27,17 +19,17 @@
     chart.forceY([<%= @minbmi %>, <%= @maxbmi %>]);
 
     chart.yAxis
-        .tickFormat(d3.format(',.1f'));
+      .tickFormat(d3.format(',.1f'));
 
-   d3.select('#chart svg')
-       .datum(plotData())
-       .transition().duration(500)
-       .call(chart);
+    d3.select('#chart svg')
+      .datum(plotData())
+      .transition().duration(500)
+      .call(chart);
   
    nv.utils.windowResize(chart.update);   
 
    return chart;
-});
+  });
  
 function plotData() {
   return [{ 
@@ -66,7 +58,7 @@ function plotData() {
   <% end %>
 
   <% if 30 < @maxbmi && 30 > @minbmi %>
-  {key: "Übergewicht <-> Adipositas Grad 1", color: "#FFFF00", values: [
+    {key: "Übergewicht <-> Adipositas Grad 1", color: "#FFFF00", values: [
       <% @weighings.each do |weighing| %>
         {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 30}, 
       <% end %>
@@ -74,16 +66,16 @@ function plotData() {
   <% end %>
 
   <% if 35 < @maxbmi && 35 > @minbmi %>
-  {key: "Adipositas Grad 1 <-> Adipositas Grad 2", color: "#FF6633", values: [
-    <% @weighings.each do |weighing| %>
+    {key: "Adipositas Grad 1 <-> Adipositas Grad 2", color: "#FF6633", values: [
+      <% @weighings.each do |weighing| %>
         {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 35}, 
       <% end %>
     ]},  
   <% end %>
 
   <% if 40 < @maxbmi && 40 > @minbmi %>
-  {key: "Adipositas Grad 2 <-> Adipositas Grad 3", color: "#FF0000", values: [
-    <% @weighings.each do |weighing| %>
+    {key: "Adipositas Grad 2 <-> Adipositas Grad 3", color: "#FF0000", values: [
+      <% @weighings.each do |weighing| %>
         {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 40}, 
       <% end %>
     ]},  
@@ -91,11 +83,11 @@ function plotData() {
 
   <% unless @target.nil? %>          
     {key: "Wunschgewicht", color: "#C33", size: 1, values: [
-    <% @weighings.each do |weighing| %>
+      <% @weighings.each do |weighing| %>
         {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= @target %>}, 
       <% end %>
     ]},  
   <% end %>                                                          
-  ];   
-};
+  ]};
 </script>
+<br/><%= link_to t("compare"), select_competitor_weighings_path, :class => "btn btn-success" %>

@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   end
   
   def invitation_token
-  invitation.token if invitation
+    invitation.token if invitation
   end
 
   def invitation_token=(token)
@@ -60,6 +60,6 @@ class User < ActiveRecord::Base
   end
   
   def set_invitation_limit
-    self.invitation_limit = 10
+    self.invitation_limit = 100
   end
 end

@@ -1,20 +1,21 @@
 <fieldset>
-<%= f.label :date, Weighing.human_attribute_name('date') %>
-<%= f.date_select :date, {}, html_options = { class: "input-small" } %>
-<span class="help-block"><%= t "helpers.date" %></span>
+	<%= f.label :date, Weighing.human_attribute_name('date') %>
+	<%= f.date_select :date, {}, html_options = { class: "input-small" } %>
+	<span class="help-block"><%= t "helpers.date" %></span>
 
-<%= f.label :weight, Weighing.human_attribute_name('weight') %>
-<%= f.text_field :weight, :class => 'number_field', :value => @last_weight %> kg
-<span class="help-block"><%= t "helpers.weight" %></span>
+	<%= f.label :weight, Weighing.human_attribute_name('weight') %>
+	<%= f.text_field :weight, :class => 'number_field', :value => @last_weight %> kg
+	<span class="help-block"><%= t "helpers.weight" %></span>
 
-<%= f.label :abdominal_girth, Weighing.human_attribute_name('abdominal_girth') %>
-<%= f.text_field :abdominal_girth, :class => 'number_field', :value => @last_abdominal_gith %> cm
-<span class="help-block"><%= t "helpers.girth" %></span>
+	<%= f.label :abdominal_girth, Weighing.human_attribute_name('abdominal_girth') %>
+	<%= f.text_field :abdominal_girth, :class => 'number_field', :value => @last_abdominal_gith %> cm
+	<span class="help-block"><%= t "helpers.girth" %></span>
 
-<%= f.label :adipose, Weighing.human_attribute_name('adipose') %>
-<%= f.text_field :adipose, :class => 'number_field', :value => @last_adipose %> %
-<span class="help-block"><%= t "helpers.adipose" %></span>
+	<%= f.label :adipose, Weighing.human_attribute_name('adipose') %>
+	<%= f.text_field :adipose, :class => 'number_field', :value => @last_adipose %> %
+	<span class="help-block"><%= t "helpers.adipose" %></span>
 </fieldset>
 
 <%= f.submit t("save"), class: "btn btn-primary" %>
 <%= link_to t("cancel"), weighings_path, :class => "btn btn-warning" %>
+<%= link_to t("diagram"), diagram_weighings_path, :class => "btn btn-info" %>

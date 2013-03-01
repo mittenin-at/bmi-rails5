@@ -1,36 +1,27 @@
-<% content_for :sidebar do %>
-  <% if admin? %>
-    <li><%= link_to t("list"), users_path  %></li>
-    <li><%= link_to t("new"), new_user_path %></li>
+<table class="table table-striped" >
+  <tr>
+    <td><b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email")) %>:</b></td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td><b><%= t("activerecord.attributes.user.height", :default => t("activerecord.labels.height")) %>:</b></td>
+    <td><%= @user.height %></td>
+  </tr>
+  <tr>
+    <td><b><%= t("activerecord.attributes.user.target", :default => t("activerecord.labels.target")) %>:</b></td>
+    <td><%= @user.target %></td>
+  </tr>
+  <tr>
+    <td><b><%= t("activerecord.attributes.user.public", :default => t("activerecord.labels.public")) %>:</b></td>
+    <td><%= @user.public? ? raw("&#10003;") : "X" %></td>
+  </tr>
+  <% if admin? %>        
+    <tr>
+      <td><b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin")) %>:</b></td>
+      <td><%= @user.admin? ? raw("&#10003;") : "X" %></td>
+    </tr>
   <% end %>
-  <li class="active"><%= link_to t("show"), user_path %></li>
-  <li><%= link_to t("invite"), new_invitation_path %></li>      
-<% end %>
-
-<h1><%= User.model_name.human %> <%= t("show_lc") %></h1>
-
-<p>
-  <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email")) %>:</b>
-  <%= @user.email %>
-</p>
-<p>
-  <b><%= t("activerecord.attributes.user.height", :default => t("activerecord.labels.height")) %>:</b>
-  <%= @user.height %>
-</p>
-<p>
-  <b><%= t("activerecord.attributes.user.target", :default => t("activerecord.labels.target")) %>:</b>
-  <%= @user.target %>
-</p>
-<p>
-  <b><%= t("activerecord.attributes.user.public", :default => t("activerecord.labels.public")) %>:</b>
-  <%= @user.public? ? raw("&#10003;") : "X" %>
-</p>
-<% if admin? %>        
-<p>
-  <b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin")) %>:</b>
-  <%= @user.admin? ? raw("&#10003;") : "X" %>
-</p>
-<% end %>
+</table>
 
 <%= link_to t("edit"), edit_user_path(@user), :class => "btn btn-primary" %>
-<%= link_to t("delete"), user_path(@user), :method => "delete", :class => "btn btn-danger", :confirm => "#{t("confirm")}" %>
+<%= link_to t("delete"), user_path(@user), :method => "delete", :class => "btn btn-danger", :confirm => "#{t("confirm")}" if admin? %>

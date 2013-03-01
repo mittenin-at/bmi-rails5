@@ -13,26 +13,37 @@ de:
   diagram: Diagramm
   edit: Bearbeiten
   edit_lc: bearbeiten
+  edit_my_profile: Mein Profil bearbeiten
   email: E-Mail Adresse
+  entries: Einträge
   error: Fehler
   height: Größe (kg)
   helpers:
     adipose: 'Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 32.1'
+    admin: verleiht Administratorberechtigung - GEFÄHRLICH!
     date: 'Das Datum der Wägung. Pro Tag kann nur eine Wägung eingegeben werden.'
+    email: "z.B.: clara@mustermann.de"
     girth: 'Bauchumfang in ganzen Zentimetern.'
     error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
+    height: "z.B.: 178"
+    password: "z.B.: Geh59M$314"
+    public: "Kreuzen Sie dieses Feld an, wenn Sie Ihren Gewichtsverlauf veröffentlichen und mit anderen vergleichen möchten."
     weight: "Verwenden Sie einen Dezimalpunkt als Trennzeichen! z.B.: 78.3"
   invite: Freunde einladen
+  invite_friends: Laden Sie Ihre Familie und Ihre Freunde ein! Es macht gemeinsam einfach mehr Spaß und gibt den extra-Kick Motivation!
+  invite_now: Einladung senden
+  invitee: Die Emailadresse des Einzuladenden
+  invitation: Einladungen
+  invitations: Einladungen
   list: Liste
   login: Anmelden
   logout: Logout
-  edit_my_profile: Mein Profil bearbeiten
+  my_entries: Meine Einträge
+  my_profile: Mein Profil
   new: Neuer Eintrag
   private_profile: "Sie können Ihren BMI nur mit anderen Personen vergleichen, wenn Sie Ihren eigenen in Ihrem Profil freigeben!"
   profile: Profil
   public: öffentlich
-  invite: Einladen
-  invite_friends: Laden Sie Ihre Familie und Ihre Freunde ein! Es macht gemeinsam einfach mehr Spaß und gibt den extra-Kick Motivation!
   register: Registrieren
   save: Speichern
   show: Anzeigen
@@ -40,7 +51,101 @@ de:
   source: "Quelle: Wikipedia: 'Body-Mass-Index'"
   submit: Absenden
   track: "Sie wollen Ihr Gewicht halten oder sogar abnehmen?<br/>Beobachten Sie Ihren Body Mass Index und seien Sie konsequenter, indem Sie Ihren Status veröffentlichen und mit dem von Freunden und Bekannten vergleichen!"
+  user_list: Benutzerliste
+  welcome: Willkommen beim BMI-Monitor!
   your_email: Ihre Email-Adresse
+
+  activemodel:
+    errors:
+      template:
+        header:
+          one:    "Konnte {{model}} nicht speichern: ein Fehler."
+          other:  "Konnte {{model}} nicht speichern: {{count}} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Konnte {{model}} nicht speichern: ein Fehler."
+          other:  "Konnte {{model}} nicht speichern: {{count}} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: 'Die eingegebenen Passwörter stimmen nicht überein!'
+            height:
+              blank: 'Die Größe ist zur Errechnung des BMI nötig und daher ein Mussfeld!'
+        weighing:
+          attributes:
+            date:
+              taken: 'Für diesen Tag existiert bereits eine Wägung!'
+            weight:
+              blank: 'Bitte geben Sie ein Gewicht ein!'
+        invitation:
+          attributes:
+            recipient_email:
+              blank: "Die Emailadresse wurde nicht angegeben!"
+
+    models:
+      user: 'Benutzer'
+      weighing:
+        one: 'Wägung'
+        other: 'Wägungen'
+      invitation:
+        one: 'Einladung'
+        other: 'Einladungen'
+
+    attributes:
+      invitation:
+        recipient_email: 'Emailadresse des Eingeladenen'
+        invitation_token: 'Token zur Anmeldung'
+      user:
+        email: 'Emailadresse'
+        password: 'Passwort'
+        password_confirmation: 'Passwortwiederholung'
+        public: 'öffentlich'
+        height: 'Größe (cm)'
+        admin: 'Administrator'
+        target: 'Wunschgewicht (kg)'
+
+      weighing:
+        abdominal_girth: 'Bauchumfang (cm)'
+        adipose: 'Körperfett (%)'
+        date: 'Datum'
+        user: 'Benutzer'
+        weight: 'Gewicht (kg)'
+
+      messages:
+        inclusion: "ist kein gültiger Wert"
+        exclusion: "ist nicht verfügbar"
+        invalid: "ist nicht gültig"
+        confirmation: "stimmt nicht mit der Bestätigung überein"
+        accepted: "muss akzeptiert werden"
+        empty: "muss ausgefüllt werden"
+        blank: "muss ausgefüllt werden"
+        too_long: "ist zu lang (nicht mehr als {{count}} Zeichen)"
+        too_short: "ist zu kurz (nicht weniger als {{count}} Zeichen)"
+        wrong_length: "hat die falsche Länge (muss genau {{count}} Zeichen haben)"
+        taken: "ist bereits vergeben"
+        not_a_number: "ist keine Zahl"
+        greater_than: "muss größer als {{count}} sein"
+        greater_than_or_equal_to: "muss größer oder gleich {{count}} sein"
+        equal_to: "muss genau {{count}} sein"
+        less_than: "muss kleiner als {{count}} sein"
+        less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
+        odd: "muss ungerade sein"
+        even: "muss gerade sein"
+        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: {{errors}}"
+
+  views:
+    pagination:
+      first: " &laquo; zum Anfang "
+      last: " zum Ende &raquo; "
+      previous: " &lsaquo; zurück "
+      next: " vor &rsaquo; "
+      truncate: "..."
 
   time:
     formats:
@@ -135,8 +240,6 @@ de:
         delimiter: ""
         precision: 1
       storage_units:
-        # Storage units output formatting.
-        # %u is the storage unit, %n is the number (default: 2 MB)
         format: "%n %u"
         units:
           byte:
@@ -146,6 +249,7 @@ de:
           mb: "MB"
           gb: "GB"
           tb: "TB"
+
   support:
     array:
       words_connector: ", "
@@ -153,87 +257,3 @@ de:
       last_word_connector: " und "
     select:
       prompt: "Bitte wählen:"
-  activemodel:
-    errors:
-      template:
-        header:
-          one:    "Konnte {{model}} nicht speichern: ein Fehler."
-          other:  "Konnte {{model}} nicht speichern: {{count}} Fehler."
-        body: "Bitte überprüfen Sie die folgenden Felder:"
-  activerecord:
-    errors:
-      template:
-        header:
-          one:    "Konnte {{model}} nicht speichern: ein Fehler."
-          other:  "Konnte {{model}} nicht speichern: {{count}} Fehler."
-        body: "Bitte überprüfen Sie die folgenden Felder:"
-      models:
-        user:
-          attributes:
-            password:
-              confirmation: 'Die eingegebenen Passwörter stimmen nicht überein!'
-            height:
-              blank: 'Die Größe ist zur Errechnung des BMI nötig und daher ein Mussfeld!'
-        weighing:
-          attributes:
-            date:
-              taken: 'Für diesen Tag existiert bereits eine Wägung!'
-            weight:
-              blank: 'Bitte geben Sie ein Gewicht ein!'
-        invitation:
-          attributes:
-            recipient_email:
-              blank: "Die Emailadresse wurde nicht angegeben!"
-    models:
-      user: 'Benutzer'
-      weighing:
-        one: 'Wägung'
-        other: 'Wägungen'
-      invitation:
-        one: 'Einladung'
-        other: 'Einladungen'
-    attributes:
-      user:
-        email: 'Emailadresse'
-        password: 'Passwort'
-        password_confirmation: 'Passwortwiederholung'
-        public: 'öffentlich'
-        height: 'Größe (cm)'
-        admin: 'Administrator'
-        target: 'Wunschgewicht (kg)'
-      weighing:
-        abdominal_girth: 'Bauchumfang (cm)'
-        adipose: 'Körperfett (%)'
-        date: 'Datum'
-        user: 'Benutzer'
-        weight: 'Gewicht (kg)'
-
-      messages:
-        inclusion: "ist kein gültiger Wert"
-        exclusion: "ist nicht verfügbar"
-        invalid: "ist nicht gültig"
-        confirmation: "stimmt nicht mit der Bestätigung überein"
-        accepted: "muss akzeptiert werden"
-        empty: "muss ausgefüllt werden"
-        blank: "muss ausgefüllt werden"
-        too_long: "ist zu lang (nicht mehr als {{count}} Zeichen)"
-        too_short: "ist zu kurz (nicht weniger als {{count}} Zeichen)"
-        wrong_length: "hat die falsche Länge (muss genau {{count}} Zeichen haben)"
-        taken: "ist bereits vergeben"
-        not_a_number: "ist keine Zahl"
-        greater_than: "muss größer als {{count}} sein"
-        greater_than_or_equal_to: "muss größer oder gleich {{count}} sein"
-        equal_to: "muss genau {{count}} sein"
-        less_than: "muss kleiner als {{count}} sein"
-        less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
-        odd: "muss ungerade sein"
-        even: "muss gerade sein"
-        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: {{errors}}"
-
-  views:
-    pagination:
-      first: " &laquo; zum Anfang "
-      last: " zum Ende &raquo; "
-      previous: " &lsaquo; zurück "
-      next: " vor &rsaquo; "
-      truncate: "..."

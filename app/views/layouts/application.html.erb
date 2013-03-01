@@ -3,7 +3,7 @@
   <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="shortcut icon" href="/assets/favicon.ico" />
-    <title>BMI Monitor</title>
+    <title>BMI Monitor@mittenin.at</title>
     <%= stylesheet_link_tag "application" , :media => "all" %>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -22,11 +22,35 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">BMI Monitor</a>
+            <a class="brand" href="/">BMI Monitor@mittenin.at</a>
             <div class="container-fluid nav-collapse">
               <ul class="nav">
-                <li><%= link_to "Wägungen", weighings_path if current_user %></li>
-                <li><%= link_to "mein Profil", user_path(current_user) if current_user %></li>
+                <% if current_user %>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" id="drop1" data-toggle="dropdown" href="#"><%= t('entries') %><b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                      <li><%= link_to t("my_entries"), weighings_path  %></li>
+                      <li><%= link_to t("new"), new_weighing_path %></li>
+                      <li><%= link_to t("diagram"), diagram_weighings_path %></li>
+                      <li><%= link_to t("compare"), select_competitor_weighings_path %></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" id="drop2" data-toggle="dropdown" href="#"><%= t('profile') %><b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                      <li><%= link_to t("my_profile"), user_path(current_user) %></li>
+                      <li><%= link_to t("edit_my_profile"), edit_user_path(current_user) %></li>
+                      <li><%= link_to t("user_list"), users_path if admin? %></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" id="drop3" data-toggle="dropdown" href="#"><%= t('invitation') %><b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                      <li><%= link_to t("invite"), new_invitation_path %></li>        
+                      <li><%= link_to t("invitations"), invitations_path if admin? %></li>        
+                    </ul>
+                  </li>
+                <% end %>  
               </ul>
               <ul class="nav pull-right"> 
                 <li><%= link_to "DE", request.path + "?locale=de" %></li>
@@ -38,30 +62,16 @@
         </div>
       </div>
 
-      <div class="container-fluid">
-        <div class="row-fluid">
-          <div class="span2">
-            <div class="well sidebar-nav">
-              <ul class="nav nav-list">
-                <li class="nav-header">Navigation</li>
-                <%= yield :sidebar %>
-                <li class="nav-header">Links</li>
-                <li><a href="http://de.wikipedia.org/wiki/Body-Mass-Index" target="new">BMI (Wikipedia)</a></li>
-              </ul>
-            </div><!--/.well -->
-          </div><!--/span-->
-          <div class="span10">
-            <%= bootstrap_flash %>
-            <%= yield %>
-          </div>
-        </div><!--/row-->
+      <div class="container">
+        <%= bootstrap_flash %>
+        <%= yield %>
       </div> <!-- /container -->
       <div id="push"></div>
     </div> <!-- /wrap -->
     <div id="footer">
       <div class="container">
-        <p><br/>BMI@mittenin.at
-          <span class="pull-right">&copy <a href="http://www.informatom.com">Informatom EDV Dienstleistungen e.U.</a> <%= Time.now.year %></div>
+        <p><br/><a href="http://bmi.mittenin.at">BMI Monitor </a> @ <a href="http://www.mittenin.at">Mittenin.at</a>
+          <span class="pull-right">GPL v3 licenced, Fork me@Github!</div>
         </p>
       </div>      
     </div>

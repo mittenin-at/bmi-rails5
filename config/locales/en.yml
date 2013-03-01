@@ -15,13 +15,19 @@ en:
   edit_lc: edit
   edit_my_profile: Edit my profile
   email: E-mail address
+  entries: Entries
   error: error
   height: Height (kg)
   helpers:
     adipose: "Use decimal point as delimiter! e.g. 32.1"
+    admin: gives admin rights  - DANGEROUS!
     date: "Date of the weighing. You can only enter one weighing per day."
+    email: "e.g. jane@doe.com"
     error_message: " prohibited(n), that this %{model} was saved"
     girth: Abdominal girth in full centimeters.
+    height: e.g. 178
+    password: e.g. SeCr5t$314
+    public: Check this box if you want to share and compare your progress with others.
     weight: "Use decimal point as delimiter! e.g. 78.3"
     select:
       prompt: Please select
@@ -30,14 +36,19 @@ en:
       submit: Save %{model}
       update: Update %{model}
   invite: Invite friends
+  invite_now: Send invite
+  inviteee: E-mail address of the the invitee
+  invitation: Invites
+  invitations: All invites
   list: List
   login: Login
   logout: Logout
+  my_entries: My entries
+  my_profile: My profile
   new: New
   private_profile: "You can only compare your BMI with other users', if your own profile is public!"
   profile: Profile
   public: Public
-  invite: Invite
   invite_friends: Invite family and friends. It's just more fun and gives you the extra-kick of motivation!
   register: Register
   save: Save
@@ -46,6 +57,8 @@ en:
   source: "Source: Wikipedia: 'Body mass index'"
   submit: Submit
   track: "You want to keep your weight or even loose weight?<br/> Track your body mass index and be more konsequent by sharing your status and comparing it to your friends and familiy!"
+  user_list: User list
+  welcome: Welcome at the BMI Monitor
   your_email: Your e-mail address
   activerecord:
     errors:
@@ -72,9 +85,15 @@ en:
             recipient_email:
               blank: "No e-mail address was provided!"
     models:
-      user: user
-      weighing: weighing
-      invitation: invitation
+      user: 
+        one: user
+        other: users
+      weighing: 
+        one: weighing
+        other: weighings
+      invitation: 
+        one: invitation
+        other: invitations
     attributes:
       user:
         email: E-mail address

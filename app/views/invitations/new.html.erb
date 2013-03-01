@@ -4,9 +4,9 @@
 
 <%= form_for @invitation do |f| %>
   <fieldset>
-    <%= f.label :recipient_email, "Die Emailadresse des Einzuladenden" %>
+    <%= f.label :recipient_email, t("invitee") %>
     <%= f.text_field :recipient_email %>
-    <span class="help-block">z.b.: max.mustermann@beispiel.com</span>
+    <span class="help-block"><%= t("helpers.email") %></span>
   </fieldset>
-  <%= f.submit "Person einladen", class: "btn btn-info" %>
+  <%= f.submit t("invite_now"), class: "btn btn-info" %>
 <% end %>

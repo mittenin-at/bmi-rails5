@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.12'
 gem 'mysql2'
 gem 'kaminari'
+gem 'nokogiri'
 
 gem 'jquery-rails'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
