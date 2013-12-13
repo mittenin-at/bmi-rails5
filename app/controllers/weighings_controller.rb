@@ -48,7 +48,8 @@ class WeighingsController < ApplicationController
   end
 
   def diagram
-    @weighings = Weighing.order("date").find_all_by_user_id(session[:user_id])
+    @startdate = Weighing.where(user_id: session[:user_id]).minimum(:date).to_time
+    @weighings = Weighing.order("date").where(user_id: session[:user_id])
     if @weighings.count == 0
       flash[:notice] = "Noch keine Wägung eingetragen!"
       redirect_to(:action => 'new')
@@ -56,35 +57,46 @@ class WeighingsController < ApplicationController
       @height = current_user.height
       unless current_user.target.nil?
         @target = (current_user.target * 100 * 100 / @height / @height).round(2)
-        @minbmi = [( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ), @target].min - 0.5
-        @maxbmi = [( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ), @target].max + 0.5
+        @minbmi = [@weighings.min_by { |w| w.weight }.weight * 10000 / @height / @height, @target].min - 0.5
+        @maxbmi = [@weighings.max_by { |w| w.weight }.weight * 10000 / @height / @height, @target].max + 0.5
       else
-        @minbmi = ( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ) - 0.5
-        @maxbmi = ( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ) + 0.5
+        @minbmi = @weighings.min_by { |w| w.weight }.weight * 10000 / @height / @height - 0.5
+        @maxbmi = @weighings.max_by { |w| w.weight }.weight * 10000 / @height / @height + 0.5
       end
-
-     
     end
   end
-  
+
   def select_competitor
     @competitors= User.find_all_by_public(true)
   end
-  
+
   def compare
-    @weighings = Weighing.order("date").find_all_by_user_id(session[:user_id])
-    @compared = Weighing.order("date").find_all_by_user_id(params[:competitor][:id])
-    if @weighings.count == 0
+    case params[:timespan]
+    when "full"
+      @startdate = [ Weighing.where(user_id: session[:user_id]).minimum(:date),
+                     Weighing.where(user_id: params[:competitor][:id]).minimum(:date) ].min.to_time
+    when "year"
+      @startdate = Time.now - 1.year
+    when "quarter"
+      @startdate = Time.now - 3.month
+    when "month"
+      @startdate = Time.now - 1.month
+    end
+      @weighings = Weighing.order("date").where(user_id:session[:user_id], date: @startdate..Time.now)
+      @compared = Weighing.order("date").where(user_id:params[:competitor][:id], date: @startdate..Time.now)
+    unless @weighings
       flash[:notice] = "Noch keine Wägung eingetragen!"
       redirect_to(:action => 'new')
     else
       @height = User.find(session[:user_id]).height
-      @height_competitor = User.find(params[:competitor][:id]).height 
-      @minbmi = [( Weighing.minimum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ),
-                 ( Weighing.minimum(:weight, :conditions => ['user_id = ?', params[:competitor][:id]]) * 100 * 100 / @height_competitor / @height_competitor )].min - 0.5
+      @height_competitor = User.find(params[:competitor][:id]).height
+      @minbmi = [ @weighings.min_by { |w| w.weight }.weight * 10000 / @height / @height,
+                  @compared.min_by { |w| w.weight }.weight * 10000 / @height_competitor /
+                  @height_competitor ].min - 0.5
 
-      @maxbmi = [( Weighing.maximum(:weight, :conditions => ['user_id = ?', session[:user_id]]) * 100 * 100 / @height / @height ),
-                 ( Weighing.maximum(:weight, :conditions => ['user_id = ?', params[:competitor][:id]]) * 100 * 100 / @height_competitor / @height_competitor )].max + 0.5
+      @maxbmi = [@weighings.max_by { |w| w.weight }.weight * 10000 / @height / @height ,
+                 @compared.max_by { |w| w.weight }.weight * 10000 / @height_competitor /
+                 @height_competitor ].max + 0.5
     end
   end
 end

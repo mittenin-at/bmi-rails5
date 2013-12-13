@@ -5,11 +5,29 @@
   <li class="active"><%= link_to t("compare"), select_competitor_weighings_path %></li>
   <li><%= link_to t("invite"), new_invitation_path %></li>
 <% end %>
-  
+
 <% if current_user.public? %>
-  <%= form_tag '/weighings/compare', :method => :post, :class => 'form' do %>
+  <%= form_tag '/weighings/compare', :method => :post, :class => 'form-horizontal' do %>
     <p><%= t "compare_with" %> &nbsp; <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), {:include_blank => false}, {class: "input-xlarge"}) %></p>
-    <%= button_tag t("compare"), class: "btn btn-info" %>       
+    <p>
+    <div class="control-group">
+      <div class="controls">
+        <%= label_tag(:timespan,
+                       radio_button_tag(:timespan, "full", :checked) + " alle Aufzeichnungen",
+                       class: "checkbox") %>
+        <%= label_tag(:timespan,
+                       radio_button_tag(:timespan, "year") + " das letzte Jahr",
+                       class: "checkbox") %>
+        <%= label_tag(:timespan,
+                       radio_button_tag(:timespan, "quarter") + " das letzte Quartal",
+                       class: "checkbox") %>
+        <%= label_tag(:timespan,
+                       radio_button_tag(:timespan, "month") + " der letzte Monat",
+                       class: "checkbox") %>
+      </div>
+    </div>
+
+    <%= button_tag t("compare"), class: "btn btn-info" %>
   <% end %>
 <% else %>
   <div class="alert alert-error">

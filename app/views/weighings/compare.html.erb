@@ -5,7 +5,7 @@
 <script type="text/javascript" charset="utf-8">
   nv.addGraph(function() {
     var chart = nv.models.lineWithFocusChart();
-  
+
     chart.xAxis
       .tickFormat(function(d) {
       return d3.time.format('%d.%m.%Y')(new Date(d))
@@ -14,8 +14,8 @@
     chart.x2Axis
       .tickFormat(function(d) {
       return d3.time.format('%d.%m.%Y')(new Date(d))
-    });      
-  
+    });
+
     chart.yAxis
         .tickFormat(d3.format(',.1f'));
     chart.forceY([<%= @minbmi %>, <%= @maxbmi %>]);
@@ -24,62 +24,57 @@
        .datum(plotData())
        .transition().duration(500)
        .call(chart);
-  
+
     nv.utils.windowResize(chart.update);
 
     return chart;
   });
- 
+
 function plotData() {
-  return [{ 
+  return [{
     key: '<%= @weighings.first.user.email %>', values: [
-      <% @weighings.each do |weighing| %> 
-        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>, weight: <%= weighing.weight %>}, 
-      <% end %>      
+      <% @weighings.each do |weighing| %>
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>, weight: <%= weighing.weight %>},
+      <% end %>
     ]},
     {key: '<%= @compared.first.user.email %>', color: '#AAA', values: [
-      <% @compared.each do |weighing| %> 
-        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= (weighing.weight * 100 * 100 / @height_competitor / @height_competitor).round(2) %>, weight: <%= weighing.weight %>}, 
-      <% end %>      
+      <% @compared.each do |weighing| %>
+        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= (weighing.weight * 100 * 100 / @height_competitor / @height_competitor).round(2) %>, weight: <%= weighing.weight %>},
+      <% end %>
     ]},
   <% if 18.5 < @maxbmi && 18.5 > @minbmi %>
     {key: "Untergewicht <-> Normalgewicht", color: "#3DFFFF", values: [
-      <% @weighings.each do |weighing| %>
-        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 18.5}, 
-      <% end %>
-    ]},  
+      {x: <%= @startdate.to_i * 1000 %>, y: 18.5},
+      {x: <%= Time.now.to_i * 1000 %>, y: 18.5},
+    ]},
   <% end %>
 
   <% if 25 < @maxbmi && 25 > @minbmi %>
     {key: "Normalgewicht <-> Übergewicht", color: "#00FF80", values: [
-      <% @weighings.each do |weighing| %>
-        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 25}, 
-      <% end %>
-    ]},  
+      {x: <%= @startdate.to_i * 1000 %>, y: 25},
+      {x: <%= Time.now.to_i * 1000 %>, y: 25},
+    ]},
   <% end %>
 
   <% if 30 < @maxbmi && 30 > @minbmi %>
     {key: "Übergewicht <-> Adipositas Grad 1", color: "#FFFF00", values: [
-      <% @weighings.each do |weighing| %>
-        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 30}, 
-      <% end %>
-    ]},  
+      {x: <%= @startdate.to_i * 1000 %>, y: 30},
+      {x: <%= Time.now.to_i * 1000 %>, y: 30},
+    ]},
   <% end %>
 
   <% if 35 < @maxbmi && 35 > @minbmi %>
     {key: "Adipositas Grad 1 <-> Adipositas Grad 2", color: "#FF6633", values: [
-      <% @weighings.each do |weighing| %>
-        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 35}, 
-      <% end %>
-    ]},  
+      {x: <%= @startdate.to_i * 1000 %>, y: 35},
+      {x: <%= Time.now.to_i * 1000 %>, y: 35},
+    ]},
   <% end %>
 
   <% if 40 < @maxbmi && 40 > @minbmi %>
     {key: "Adipositas Grad 2 <-> Adipositas Grad 3", color: "#FF0000", values: [
-      <% @weighings.each do |weighing| %>
-        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: 40}, 
-      <% end %>
-    ]},  
+      {x: <%= @startdate.to_i * 1000 %>, y: 40},
+      {x: <%= Time.now.to_i * 1000 %>, y: 40},
+    ]},
   <% end %>
   ]};
 </script>
