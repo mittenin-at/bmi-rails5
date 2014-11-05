@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.18'
+gem 'rails', '3.2.20'
 gem 'mysql2'
 gem 'kaminari'
 gem 'nokogiri'
@@ -18,5 +18,5 @@ group :assets do
 end
 
 group :test, :development do
-  gem 'debugger'
+  gem 'byebug'
 end
