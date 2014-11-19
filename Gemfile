@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.20'
+gem 'rails', '3.2.21'
 gem 'mysql2'
 gem 'kaminari'
 gem 'nokogiri'
