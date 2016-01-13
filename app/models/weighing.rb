@@ -1,4 +1,5 @@
 class Weighing < ActiveRecord::Base
+  attr_accessible :user_id, :date, :weight, :abdominal_girth, :adipose
 
 	belongs_to :user
 

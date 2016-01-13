@@ -13,9 +13,9 @@ Bmi::Application.routes.draw do
     end
   end
 
-  match '/signup/:invitation_token' => 'users#new', :as => :signup
+  get '/signup/:invitation_token' => 'users#new', :as => :signup
 
-  match 'authentication/login', :controller => 'authentication', :action => 'login'
+  post 'authentication/login', :controller => 'authentication', :action => 'login'
   get "authentication/logout"
   post "invitations/create"
 
@@ -23,6 +23,6 @@ Bmi::Application.routes.draw do
 
   root :to => "authentication", :action => "login"
 
-  match '/login', :controller  => "authentication", :action => "login"
-  match '/logout', :controller => "authentication", :action => "logout"
+  post '/login', :controller  => "authentication", :action => "login"
+  get '/logout', :controller => "authentication", :action => "logout"
 end

@@ -5,11 +5,11 @@ class WeighingsController < ApplicationController
   end
 
   def show
-    @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
+    @weighing = Weighing.where(id: params[:id], user_id: session[:user_id])
   end
 
   def new
-    last_weighing = Weighing.find_all_by_user_id(session[:user_id]).last
+    last_weighing = Weighing.where(user_id: session[:user_id]).last
     @last_weight = last_weighing.weight if last_weighing
     @last_abdomnal_girth = last_weighing.abdominal_girth if last_weighing
     @last_adipose = last_weighing.adipose if last_weighing
@@ -17,7 +17,7 @@ class WeighingsController < ApplicationController
   end
 
   def edit
-    @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
+    @weighing = Weighing.where(id: params[:id], user_id: session[:user_id])
   end
 
   def create
@@ -31,7 +31,7 @@ class WeighingsController < ApplicationController
   end
 
   def update
-    @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
+    @weighing = Weighing.where(id: params[:id], user_id: session[:user_id])
     @weighing.user_id =  session[:user_id]
 
     if @weighing.update_attributes(params[:weighing])
@@ -42,7 +42,7 @@ class WeighingsController < ApplicationController
   end
 
   def destroy
-    @weighing = Weighing.find_by_id_and_user_id(params[:id], session[:user_id])
+    @weighing = Weighing.where(id: params[:id], user_id: session[:user_id])
     @weighing.destroy
     redirect_to(weighings_url)
   end
@@ -67,7 +67,7 @@ class WeighingsController < ApplicationController
   end
 
   def select_competitor
-    @competitors= User.find_all_by_public(true)
+    @competitors = User.where(public: true)
   end
 
   def compare

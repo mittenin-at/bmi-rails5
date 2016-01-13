@@ -1,21 +1,20 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.21'
+gem 'rails', '4.2.5'
 gem 'mysql2'
 gem 'kaminari'
 gem 'nokogiri'
 
 gem 'jquery-rails'
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git' # Twitter Bootstrap Framework
-gem 'jquery-datatables-rails' # Datatables
+gem "less-rails"
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'jquery-datatables-rails'
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'therubyracer'
+gem 'uglifier'
+gem 'protected_attributes'
 
 group :test, :development do
   gem 'byebug'

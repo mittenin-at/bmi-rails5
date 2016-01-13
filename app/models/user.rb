@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+attr_accessible :users, :email
+
 
   has_many :weighings
   has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
@@ -11,8 +13,10 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :invitation_id
   before_create :set_invitation_limit
 
+
+
   attr_accessor :password_confirmation
-    
+
   def self.authenticate(email, password)
     user = self.find_by_email(email)
     if user
@@ -35,7 +39,7 @@ class User < ActiveRecord::Base
     create_new_salt
     self.hashed_password = User.encrypted_password(self.password, self.salt)
   end
-  
+
   def invitation_token
     invitation.token if invitation
   end
@@ -48,7 +52,7 @@ class User < ActiveRecord::Base
 
   def password_non_blank
     errors.add(:base, "Passwort leer!") if hashed_password.blank?
-  end 
+  end
 
   def create_new_salt
     self.salt = self.object_id.to_s + rand.to_s
@@ -58,7 +62,7 @@ class User < ActiveRecord::Base
     string_to_hash = password + "wibble" + salt
     Digest::SHA1.hexdigest(string_to_hash)
   end
-  
+
   def set_invitation_limit
     self.invitation_limit = 100
   end
