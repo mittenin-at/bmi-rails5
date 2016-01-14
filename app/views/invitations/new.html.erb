@@ -1,12 +1,12 @@
 <% content_for :sidebar do %>
-  <li  class="active"><%= link_to t("invite"), new_invitation_path %></li>   
+  <li  class="active"><%= link_to t("invite"), new_invitation_path %></li>
 <% end %>
 
 <%= form_for @invitation do |f| %>
-  <fieldset>
+  <div class="form-group">
     <%= f.label :recipient_email, t("invitee") %>
-    <%= f.text_field :recipient_email %>
+    <%= f.text_field :recipient_email, class: "form-control" %>
     <span class="help-block"><%= t("helpers.email") %></span>
-  </fieldset>
+  </div>
   <%= f.submit t("invite_now"), class: "btn btn-info" %>
 <% end %>

@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap_and_overrides
+ *= require bootstrap-datepicker3
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require nvd3/common.css
  *= require nvd3/nv.d3.css

@@ -1,7 +1,7 @@
 <% content_for :sidebar do %>
   <li class="active"><%= link_to t("list"), users_path  %></li>
   <li><%= link_to t("new"), new_user_path %></li>
-  <li><%= link_to t("invite"), new_invitation_path %></li>   
+  <li><%= link_to t("invite"), new_invitation_path %></li>
 <% end %>
 
 <h2 class="title"><%= t("all", :default => "All")  %> <%= User.model_name.human %></h2>
@@ -26,11 +26,11 @@
         <td><%= user.admin? ? raw("&#10003;") : "X" %></td>
         <td><%= l(user.created_at) %></td>
         <td>
-          <%= link_to t("edit"), edit_user_path(user), class: "btn btn-warning btn-mini" %>
-          <%= link_to t("delete"), user_path(user), :method => :delete, :confirm => "#{t("confirm")}", class: "btn btn-danger btn-mini" %>
+          <%= link_to t("edit"), edit_user_path(user), class: "btn btn-warning btn-xs" %>
+          <%= link_to t("delete"), user_path(user), :method => :delete, :confirm => "#{t("confirm")}", class: "btn btn-danger btn-xs" %>
         </td>
       </tr>
     <% end -%>
   </tbody>
 </table>
-<%= paginate @users %>
+<%= paginate @users, :theme => 'twitter-bootstrap-3' %>

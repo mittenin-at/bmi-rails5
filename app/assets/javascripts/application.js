@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require bootstrap-datepicker
 //= require nvd3/lib/d3.v2
 //= require nvd3/lib/fisheye
 //= require nvd3/lib/nv.d3

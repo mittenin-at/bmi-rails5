@@ -8,23 +8,25 @@
 
 <% if current_user.public? %>
   <%= form_tag '/weighings/compare', :method => :post, :class => 'form-horizontal' do %>
-    <p><%= t "compare_with" %> &nbsp; <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), {:include_blank => false}, {class: "input-xlarge"}) %></p>
-    <p>
-    <div class="control-group">
-      <div class="controls">
-        <%= label_tag(:timespan,
-                       radio_button_tag(:timespan, "full", :checked) + " alle Aufzeichnungen",
-                       class: "checkbox") %>
-        <%= label_tag(:timespan,
-                       radio_button_tag(:timespan, "year") + " das letzte Jahr",
-                       class: "checkbox") %>
-        <%= label_tag(:timespan,
-                       radio_button_tag(:timespan, "quarter") + " das letzte Quartal",
-                       class: "checkbox") %>
-        <%= label_tag(:timespan,
-                       radio_button_tag(:timespan, "month") + " der letzte Monat",
-                       class: "checkbox") %>
-      </div>
+    <div class="form-group">
+      <label><%= t "compare_with" %></label>
+      <%= select('competitor', 'id', options_for_select(@competitors.map {|c| [c.email, c.id]}), {:include_blank => false},
+                                     class: "form-control" ) %>
+    </div>
+
+    <div class="form-group">
+      <div class="radio"><label>
+        <%= radio_button_tag(:timespan, "full", :checked) %> alle Aufzeichnungen
+      </label></div>
+      <div class="radio"><label>
+        <%= radio_button_tag(:timespan, "year") %> das letzte Jahr
+      </label></div>
+      <div class="radio"><label>
+        <%= radio_button_tag(:timespan, "quarter") %> das letzte Quartal
+      </label></div>
+      <div class="radio"><label>
+        <%= radio_button_tag(:timespan, "month") %> der letzte Monat
+      </label></div>
     </div>
 
     <%= button_tag t("compare"), class: "btn btn-info" %>

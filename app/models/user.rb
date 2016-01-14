@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-attr_accessible :users, :email
-
+  attr_accessible :users, :email, :password, :password_confirmation, :height, :target,
+                  :public, :admin
 
   has_many :weighings
   has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'

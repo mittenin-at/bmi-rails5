@@ -16,11 +16,11 @@
         <td><%= weighing.abdominal_girth %></td>
         <td><%= weighing.adipose %></td>
         <td>
-          <%= link_to t("edit"), edit_weighing_path(weighing), class: "btn btn-mini btn-warning" %> 
-          <%= link_to t("delete"), weighing_path(weighing), :method => :delete, :confirm => t("confirm"), class: "btn btn-mini btn-danger" %>
+          <%= link_to t("edit"), edit_weighing_path(weighing), class: "btn btn-xs btn-warning" %>
+          <%= link_to t("delete"), weighing_path(weighing), :method => :delete, :confirm => t("confirm"), class: "btn btn-xs btn-danger" %>
         </td>
       </tr>
     <% end -%>
   </tbody>
 </table>
-<%= paginate @weighings %>
+<%= paginate @weighings, :theme => 'twitter-bootstrap-3' %>

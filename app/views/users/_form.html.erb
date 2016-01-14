@@ -1,48 +1,52 @@
 <fieldset>
-  <div class="group">
+  <div class="form-group">
     <%= f.label :email, User.human_attribute_name('email') %>
-    <%= f.text_field :email, :class => 'text_field' %>
+    <%= f.text_field :email, class: "form-control" %>
     <span class="help-block"><%= t("helpers.email") %></span>
   </div>
 
-  <div class="group">
+  <div class="form-group">
     <%= f.label :password, t("activerecord.attributes.user.password") %>
-    <%= f.password_field :password, :class => 'text_field' %>
+    <%= f.password_field :password, class: "form-control" %>
     <span class="help-block"><%= t("helpers.password") %></span>
   </div>
 
-  <div class="group">
+  <div class="form-group">
     <%= f.label :password_confirmation, t("activerecord.attributes.user.password_confirmation") %>
-    <%= f.password_field :password_confirmation, :class => 'text_field' %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
     <span class="help-block"><%= t("helpers.password") %></span>
   </div>
 
-  <div class="group">
+  <div class="form-group">
     <%= f.label :height, t("activerecord.attributes.user.height") %>
-    <%= f.text_field :height, :class => 'text_field' %>
+    <%= f.text_field :height, class: "form-control" %>
     <span class="help-block"><%= t("helpers.height") %></span>
   </div>
 
-  <div class="group">
+  <div class="form-group">
     <%= f.label :target, t("activerecord.attributes.user.target") %>
-    <%= f.text_field :target, :class => 'text_field' %>
+    <%= f.text_field :target, class: "form-control" %>
     <span class="help-block"><%= t("helpers.weight") %></span>
   </div>
 
-  <div class="group">
-    <%= f.label :public, t("activerecord.attributes.user.public") %>
-    <%= f.check_box :public, :class => 'checkbox' %>
+  <div class="form-group">
+    <label>
+      <%= f.check_box :public %>
+      <%= t("activerecord.attributes.user.public") %>
+    </label>
     <span class="help-block"><%= t("helpers.public") %></span>
   </div>
 
   <% if admin? %>
-      <div class="group">
-        <%= f.label :admin, User.human_attribute_name('admin')  %>
-        <%= f.check_box :admin, :class => 'checkbox' %>
+      <div class="form-group">
+        <label>
+          <%= f.check_box :admin %>
+          <%= t User.human_attribute_name('admin') %>
+        </label>
         <span class="help-block"><%= t("helpers.admin") %></span>
       </div>
   <% end %>
 </fieldset>
 
 <%= button_tag t("save"), class: "btn btn-primary" %>
-<%= link_to t("cancel"), :back, :class => "btn btn-warning" %>
+<%= link_to t("cancel"), :back, class: "btn btn-warning" %>
