@@ -9,11 +9,11 @@ class WeighingsController < ApplicationController
   end
 
   def new
-    last_weighing = Weighing.find_by(user_id: session[:user_id])
+    last_weighing = Weighing.where(user_id: session[:user_id]).order("date desc").first
     @last_weight = last_weighing.weight if last_weighing
     @last_abdomnal_girth = last_weighing.abdominal_girth if last_weighing
     @last_adipose = last_weighing.adipose if last_weighing
-    @weighing = Weighing.new
+    @weighing = Weighing.new(date: I18n.l(Date.today))
   end
 
   def edit
