@@ -96,7 +96,7 @@ GEM
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
-    libv8 (3.16.14.13)
+    libv8 (3.16.14.19)
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -155,8 +155,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    therubyracer (0.12.2)
-      libv8 (~> 3.16.14.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
       ref
     thor (0.20.0)
     thread_safe (0.3.6)
