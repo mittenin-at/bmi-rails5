@@ -83,6 +83,7 @@ de:
               blank: 'Die Größe ist zur Errechnung des BMI nötig und daher ein Mussfeld!'
             invitation_id:
               blank: ist nicht korrekt. Haben Sie den Link abgeschnitten?
+              taken: diese Einladung existiert bereits.
         weighing:
           attributes:
             date:

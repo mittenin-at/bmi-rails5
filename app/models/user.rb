@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   before_create :set_invitation_limit
 
 
-
   attr_accessor :password_confirmation
 
   def self.authenticate(email, password)

@@ -14,6 +14,7 @@
       <th><%= t("height")  %></th>
       <th><%= User.human_attribute_name('admin') %></th>
       <th><%= t("created_at")  %></th>
+      <th><%= t("invitation_id")  %></th>
       <th class="last">&nbsp;</th>
     </tr>
   </thead>
@@ -25,6 +26,7 @@
         <td><%= user.height %></td>
         <td><%= user.admin? ? raw("&#10003;") : "X" %></td>
         <td><%= l(user.created_at) %></td>
+        <td><%= user.invitation_id %></td>
         <td>
           <%= link_to t("edit"), edit_user_path(user), class: "btn btn-warning btn-xs" %>
           <%= link_to t("delete"), user_path(user), :method => :delete, :confirm => "#{t("confirm")}", class: "btn btn-danger btn-xs" %>
