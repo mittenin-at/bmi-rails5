@@ -73,10 +73,16 @@ de:
       models:
         user:
           attributes:
+            hashed_password:
+              blank: "Das Passwort ist leer!"
+            password_confirmation:
+              confirmation: "Die Passwortwiederholung ist leer!"
             password:
               confirmation: 'Die eingegebenen Passwörter stimmen nicht überein!'
             height:
               blank: 'Die Größe ist zur Errechnung des BMI nötig und daher ein Mussfeld!'
+            invitation_id:
+              blank: ist nicht korrekt. Haben Sie den Link abgeschnitten?
         weighing:
           attributes:
             date:
@@ -89,7 +95,9 @@ de:
               blank: "Die Emailadresse wurde nicht angegeben!"
 
     models:
-      user: 'Benutzer'
+      user:
+        one: Benutzer
+        other: Benutzer
       weighing:
         one: 'Wägung'
         other: 'Wägungen'

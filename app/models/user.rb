@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :hashed_password, :height
   validates_confirmation_of :password
   validate :password_non_blank
-  validates_presence_of :invitation_id, :message => 'is required'
+  validates_presence_of :invitation_id
   validates_uniqueness_of :invitation_id
   before_create :set_invitation_limit
 
