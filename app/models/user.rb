@@ -10,9 +10,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validate :password_non_blank
   validates_presence_of :invitation_id
-  validates_uniqueness_of :invitation_id
   before_create :set_invitation_limit
-
 
   attr_accessor :password_confirmation
 
