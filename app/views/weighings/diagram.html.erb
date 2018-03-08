@@ -36,7 +36,9 @@ function plotData() {
     key: '<%= @weighings.first.user.email %>',
     values: [
       <% @weighings.each do |weighing| %>
-        {x: <%= weighing.date.to_time.to_i * 1000 %>, y: <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>, weight: <%= weighing.weight %>},
+        {x: <%= weighing.date.to_time.to_i * 1000 %>,
+         y: <%= (weighing.weight * 100 * 100 / @height / @height).round(2) %>,
+         weight: <%= weighing.weight %> },
       <% end %>
       ]
   },
