@@ -22,4 +22,10 @@ class AuthenticationController < ApplicationController
     session[:user_id] = nil
     redirect_to :root
   end
+
+  def imprint
+  end
+
+  def privacy
+  end
 end

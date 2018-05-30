@@ -25,4 +25,7 @@ Bmi::Application.routes.draw do
 
   post '/login', :controller  => "authentication", :action => "login"
   get '/logout', :controller => "authentication", :action => "logout"
+
+  get '/datenschutz', :controller => "authentication", :action => "privacy"
+  get '/impressum', :controller => "authentication", :action => "imprint"
 end

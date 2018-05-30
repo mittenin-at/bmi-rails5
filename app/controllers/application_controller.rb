@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
 before_filter :set_locale
-before_filter :authorize, :except => [:login]
+before_filter :authorize, :except => [:login, :imprint, :privacy]
 protect_from_forgery
 
 def set_locale
   I18n.locale = params[:locale] || I18n.default_locale
-end  
+end
 
 def default_url_options(options={})
   logger.debug "default_url_options is passed options: #{options.inspect}\n"
