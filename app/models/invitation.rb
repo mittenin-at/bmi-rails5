@@ -1,4 +1,4 @@
-class Invitation < ActiveRecord::Base
+class Invitation < ApplicationRecord
   belongs_to :sender, :class_name => 'User'
   has_one :recipient, :class_name => 'User'
 

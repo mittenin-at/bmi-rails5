@@ -1,4 +1,4 @@
-Bmi::Application.routes.draw do
+Rails.application.routes.draw do
   resources :invitations do
     member do
       get 'mail'

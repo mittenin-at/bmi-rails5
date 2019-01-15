@@ -1,13 +1,12 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require 'rails/all'
 
-if defined?(Bundler)
-  Bundler.require(*Rails.groups)
-end
+Bundler.require(*Rails.groups)
 
 module Bmi
   class Application < Rails::Application
+    config.load_defaults 5.0
     config.time_zone = 'Europe/Berlin'
 
     config.i18n.default_locale = :de
