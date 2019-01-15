@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-before_filter :set_locale
-before_filter :authorize, :except => [:login, :imprint, :privacy]
+before_action :set_locale
+before_action :authorize, :except => [:login, :imprint, :privacy]
 protect_from_forgery
 
 def set_locale

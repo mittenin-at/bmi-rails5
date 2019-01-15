@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_weighing, only: [:show, :edit, :update, :destroy]
-  before_filter :admin_only, :except => [:show, :edit, :update, :new, :create]
-  skip_filter :authorize, :only => [:new, :create]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only, :except => [:show, :edit, :update, :new, :create]
+  skip_before_action :authorize, :only => [:new, :create]
 
   def index
     @users = User.page(params[:page]).per(15).order("email")

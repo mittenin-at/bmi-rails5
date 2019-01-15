@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module Bmi
   class Application < Rails::Application
-#    config.load_defaults 5.0
+    config.load_defaults 5.1
     config.time_zone = 'Europe/Berlin'
 
     config.i18n.default_locale = :de

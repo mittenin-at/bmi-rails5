@@ -1,6 +1,6 @@
 class InvitationsController < ApplicationController
-  before_filter :admin_only, :except => [:new, :create]
-  skip_filter :authorize, :only => [:new, :create]
+  before_action :admin_only, :except => [:new, :create]
+  skip_before_action :authorize, :only => [:new, :create]
 
   def new
     @invitation = Invitation.new
