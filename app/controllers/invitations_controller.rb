@@ -7,18 +7,12 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    @invitation = Invitation.new(params[:invitation])
+    @invitation = Invitation.new(invitation_params)
     @invitation.sender = User.find_by_id(session[:user_id])
     if @invitation.save
-#      if User.find_by_id(session[:user_id])
-        Mailer.invitation(@invitation, signup_url(@invitation.token)).deliver
-        flash[:notice] = "Ihre Einladung wurde gesendet."
-        redirect_to root_path
-#      else
-#        Mailer.notification.deliver
-#        flash[:notice] = "Sie werden benachrichtigt, wenn die beta-Phase beendet ist."
-#        redirect_to authentication_login_path
-#      end
+      Mailer.invitation(@invitation, signup_url(@invitation.token)).deliver
+      flash[:notice] = "Ihre Einladung wurde gesendet."
+      redirect_to root_path
     else
       flash[:notice] = "Ihre E-Mailadresse ist dem System bereits bekannt."
       redirect_to authentication_login_path
@@ -26,7 +20,6 @@ class InvitationsController < ApplicationController
   end
 
   def mail
-    @invitation = Invitation.find(params[:id])
     if User.find_by_id(session[:user_id]).admin?
       Mailer.invitation(@invitation, signup_url(@invitation.token)).deliver
       flash[:notice] = "Einladung wurde gesendet."
@@ -44,5 +37,10 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.find(params[:id])
     @invitation.destroy
     redirect_to(invitations_url)
+  end
+
+private
+  def invitation_params
+    params.require(:invitation).permit(:recipient_email, :sender_id, :token)
   end
 end

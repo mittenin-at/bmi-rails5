@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_weighing, only: [:show, :edit, :update, :destroy]
   before_filter :admin_only, :except => [:show, :edit, :update, :new, :create]
   skip_filter :authorize, :only => [:new, :create]
 
@@ -7,11 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    if admin?
-      @user = User.find(params[:id])
-    else
-      @user = User.find(session[:user_id])
-    end
   end
 
   def new
@@ -20,15 +16,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if admin?
-      @user = User.find(params[:id])
-    else
-      @user = User.find(session[:user_id])
-    end
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if User.all.count == 0
       @user.admin = true
     end
@@ -41,13 +32,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if admin?
-      @user = User.find(params[:id])
-    else
-      @user = User.find(session[:user_id])
-    end
-
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(user_params)
       redirect_to(weighings_url, :notice => 'Ihr Account wurde erfolgreich aktualisiert.')
     else
       render :action => "edit"
@@ -55,14 +40,22 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to(users_url)
   end
 
-  protected
+private
+  def set_user
+    @user = if User.find(session[:user_id]).admin?
+              User.find(params[:id])
+            else
+              User.find(session[:user_id])
+            end
+  end
 
-  def admin?
-    User.find(session[:user_id]).admin?
+  def user_params
+    params.require(:user)
+          .permit(:users, :email, :password, :password_confirmation, :height, 
+                  :target, :public, :admin, :invitation_token)
   end
 end

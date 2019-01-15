@@ -1,27 +1,28 @@
-# encoding: utf-8
 class WeighingsController < ApplicationController
+  before_action :set_weighing, only: [:show, :edit, :update, :destroy]
+
   def index
     @weighings = Weighing.page(params[:page]).per(15).order("date desc").where(user_id: session[:user_id])
   end
 
   def show
-    @weighing = Weighing.find_by(id: params[:id], user_id: session[:user_id])
   end
 
   def new
     last_weighing = Weighing.where(user_id: session[:user_id]).order("date desc").first
-    @last_weight = last_weighing.weight if last_weighing
-    @last_abdomnal_girth = last_weighing.abdominal_girth if last_weighing
-    @last_adipose = last_weighing.adipose if last_weighing
+    if last_weighing
+      @last_weight = last_weighing.weight 
+      @last_abdomnal_girth = last_weighing.abdominal_girth 
+      @last_adipose = last_weighing.adipose
+    end
     @weighing = Weighing.new(date: I18n.l(Date.today))
   end
 
   def edit
-    @weighing = Weighing.find_by(id: params[:id], user_id: session[:user_id])
   end
 
   def create
-    @weighing = Weighing.new(params[:weighing])
+    @weighing = Weighing.new(weighing_params)
     @weighing.user_id =  session[:user_id]
     if @weighing.save
       redirect_to(:action => "diagram", :notice => 'Wägung wurde erfolgreich erzeugt.')
@@ -31,10 +32,9 @@ class WeighingsController < ApplicationController
   end
 
   def update
-    @weighing = Weighing.find_by(id: params[:id], user_id: session[:user_id])
     @weighing.user_id =  session[:user_id]
 
-    if @weighing.update_attributes(params[:weighing])
+    if @weighing..update_attributes(weighing_params)
       redirect_to(@weighing, :notice => 'Wägung wurde erfolgreich aktualisiert.')
     else
       render :action => "edit"
@@ -42,7 +42,6 @@ class WeighingsController < ApplicationController
   end
 
   def destroy
-    @weighing = Weighing.find_by(id: params[:id], user_id: session[:user_id])
     @weighing.destroy
     redirect_to(weighings_url)
   end
@@ -84,6 +83,7 @@ class WeighingsController < ApplicationController
     end
       @weighings = Weighing.order("date").where(user_id:session[:user_id], date: @startdate..Time.now)
       @compared = Weighing.order("date").where(user_id:params[:competitor][:id], date: @startdate..Time.now)
+
     unless @weighings
       flash[:notice] = "Noch keine Wägung eingetragen!"
       redirect_to(:action => 'new')
@@ -98,5 +98,14 @@ class WeighingsController < ApplicationController
                  @compared.max_by { |w| w.weight }.weight * 10000 / @height_competitor /
                  @height_competitor ].max + 0.5
     end
+  end
+
+private
+  def set_weighing
+    @weighing = Weighing.find_by(id: params[:id], user_id: session[:user_id])
+  end
+
+  def weighing_params
+    params.require(:weighing).permit(:user_id, :date, :weight, :abdominal_girth, :adipose)
   end
 end

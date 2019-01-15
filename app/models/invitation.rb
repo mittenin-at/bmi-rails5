@@ -1,6 +1,4 @@
 class Invitation < ActiveRecord::Base
-  attr_accessible :recipient_email, :sender_id, :token
-
   belongs_to :sender, :class_name => 'User'
   has_one :recipient, :class_name => 'User'
 
@@ -12,7 +10,6 @@ class Invitation < ActiveRecord::Base
   before_create :decrement_sender_count, :if => :sender
 
 private
-
   def recipient_is_not_registered
     errors.add :recipient_email, 'is already registered' if User.find_by_email(recipient_email)
   end
@@ -30,6 +27,4 @@ private
   def decrement_sender_count
     sender.decrement! :invitation_limit
   end
-
 end
-

@@ -1,8 +1,7 @@
-# encoding: utf-8
-
 class AuthenticationController < ApplicationController
   def login
     session[:user_id] = nil
+    
     if request.post?
       user = User.authenticate(params[:email], params[:password])
       if user

@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.2.11'
+gem 'rails', '~>5.0'
 gem 'mysql2'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
@@ -16,7 +16,6 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'therubyracer'
 gem 'uglifier'
-gem 'protected_attributes'
 
 group :test, :development do
   gem 'byebug'
