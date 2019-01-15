@@ -3,3 +3,6 @@ db/*.sqlite3
 log/*.log
 tmp/
 /config/database.yml
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
