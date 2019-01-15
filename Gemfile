@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>5.0'
+gem "rails", "~> 5.0.0"
 gem 'mysql2'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
@@ -18,6 +18,7 @@ gem 'therubyracer'
 gem 'uglifier'
 
 group :test, :development do
+  gem 'listen'
   gem 'byebug'
   gem "better_errors"                                 # Debug messages im Browser
   gem "binding_of_caller"                             # Repl for better_errors

@@ -13,7 +13,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   config.assets.compile = true
   config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
-  config.active_storage.service = :local
+  # config.active_storage.service = :local
   config.log_level = :info
   config.log_tags = [ :request_id ]
   config.action_mailer.perform_caching = false

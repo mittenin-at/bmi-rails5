@@ -15,17 +15,17 @@ Rails.application.routes.draw do
 
   get '/signup/:invitation_token' => 'users#new', :as => :signup
 
-  post 'authentication/login', :controller => 'authentication', :action => 'login'
+  post 'authentication/login', to: "authentication#login"
   get "authentication/logout"
   post "invitations/create"
 
   resources :users
 
-  root :to => "authentication", :action => "login"
+  root :to => "authentication#login"
 
-  post '/login', :controller  => "authentication", :action => "login"
-  get '/logout', :controller => "authentication", :action => "logout"
+  post '/login', to: "authentication#login"
+  get '/logout', to: "authentication#logout"
 
-  get '/datenschutz', :controller => "authentication", :action => "privacy"
-  get '/impressum', :controller => "authentication", :action => "imprint"
+  get '/datenschutz', to: "authentication#privacy"
+  get '/impressum', to: "authentication#imprint"
 end
