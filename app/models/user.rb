@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :weighings
-  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
-  belongs_to :invitation
+  has_many :sent_invitations, class_name: 'Invitation', foreign_key: 'sender_id'
+  belongs_to :invitation, optional: true
 
   validates_presence_of :email, :hashed_password, :height
   validates_confirmation_of :password

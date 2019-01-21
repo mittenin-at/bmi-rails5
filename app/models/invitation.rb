@@ -1,6 +1,6 @@
 class Invitation < ApplicationRecord
-  belongs_to :sender, :class_name => 'User'
-  has_one :recipient, :class_name => 'User'
+  belongs_to :sender, class_name: 'User'
+  has_one :recipient, class_name: 'User'
 
   validates_presence_of :recipient_email
   validate :recipient_is_not_registered
