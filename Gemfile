@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem "rails", "5.2.2.1"
+gem "rails", "5.2.3"
 gem 'mysql2'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
