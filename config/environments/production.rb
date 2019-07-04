@@ -31,6 +31,11 @@ Rails.application.configure do
     authentication:       :login,
     enable_starttls_auto: true }
 
+  config.middleware.use ExceptionNotification::Rack,
+    email: { email_prefix: "[BMI - production] ",
+             sender_address: %{"exception notification" <exception-mailer@informatom.com>},
+            exception_recipients: "stefan.haslinger@informatom.com" }
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter

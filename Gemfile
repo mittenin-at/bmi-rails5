@@ -15,6 +15,7 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'therubyracer'
 gem 'uglifier'
+gem 'exception_notification'
 
 group :test, :development do
   gem 'listen'
