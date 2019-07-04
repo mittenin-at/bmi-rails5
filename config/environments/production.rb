@@ -19,6 +19,18 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_view.raise_on_missing_translations = false
 
+  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'bit.informatom.com' }
+  config.action_mailer.default_options = { from: "exception-mailer@informatom.com" }
+  config.action_mailer.smtp_settings = {
+    address:              'box.bravepi.org',
+    port:                 587,
+    domain:               'informatom.com',
+    user_name:            Rails.application.credentials.smtp[:username],
+    password:             Rails.application.credentials.smtp[:password],
+    authentication:       :login,
+    enable_starttls_auto: true }
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter

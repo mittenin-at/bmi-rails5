@@ -28,4 +28,5 @@ Rails.application.routes.draw do
 
   get '/datenschutz', to: "authentication#privacy"
   get '/impressum', to: "authentication#imprint"
+  get 'trigger_exception_notification', to: 'application#trigger_exception_notification'
 end

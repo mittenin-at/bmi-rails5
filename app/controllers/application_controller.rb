@@ -1,11 +1,15 @@
 class ApplicationController < ActionController::Base
-before_action :set_locale
-before_action :authorize, :except => [:login, :imprint, :privacy]
-protect_from_forgery
+  before_action :set_locale
+  before_action :authorize, :except => [:login, :imprint, :privacy, :trigger_exception_notification]
+  protect_from_forgery
 
-def set_locale
-  I18n.locale = params[:locale] || I18n.default_locale
-end
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def trigger_exception_notification
+    raise "I want to see an exception notification email."
+  end
 
 protected
   def authorize
