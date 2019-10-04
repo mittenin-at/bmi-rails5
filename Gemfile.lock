@@ -81,6 +81,9 @@ GEM
     crass (1.0.4)
     debug_inspector (0.0.3)
     erubi (1.8.0)
+    exception_notification (4.3.0)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
     execjs (2.7.0)
     ffi (1.10.0)
     globalid (0.4.2)
@@ -215,6 +218,7 @@ DEPENDENCIES
   bootstrap-kaminari-views
   byebug
   coffee-rails
+  exception_notification
   jquery-datatables-rails
   jquery-rails
   kaminari
