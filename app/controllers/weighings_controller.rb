@@ -66,7 +66,7 @@ class WeighingsController < ApplicationController
   end
 
   def select_competitor
-    @competitors = User.where(public: true)
+    @competitors = User.where(public: true) - [current_user]
   end
 
   def compare

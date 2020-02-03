@@ -32,15 +32,10 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
               <% if current_user %>
-                <li class="dropdown">
-                  <a class="dropdown-toggle" id="drop1" data-toggle="dropdown" href="#"><%= t('entries') %><b class="caret"></b></a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                    <li><%= link_to t("my_entries"), weighings_path  %></li>
-                    <li><%= link_to t("new"), new_weighing_path %></li>
-                    <li><%= link_to t("diagram"), diagram_weighings_path %></li>
-                    <li><%= link_to t("compare"), select_competitor_weighings_path %></li>
-                  </ul>
-                </li>
+                <li><%= link_to t("my_entries"), weighings_path %></li>
+                <li><%= link_to t("new"), new_weighing_path %></li>
+                <li><%= link_to t("diagram"), diagram_weighings_path %></li>
+                <li><%= link_to t("compare"), select_competitor_weighings_path %></li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" id="drop2" data-toggle="dropdown" href="#"><%= t('profile') %><b class="caret"></b></a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
